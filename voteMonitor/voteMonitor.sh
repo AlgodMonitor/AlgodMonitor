@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#  algodMon v1.1 - voteMonitor - Consensus Vote Monitor - 
+#  algodMon v1.1 - voteMonitor - Consensus Vote Monitor
 # 
 #  Registration: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 #
