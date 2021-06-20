@@ -148,4 +148,11 @@ echo -e "${currentTime} \t ${errorCount} \t ${warnCount} \t ${dailyError} \t ${d
 echo -e "Date Time Error Warning Err_Total Warn_Total\n$(tail -n 20 ${errorHistory})" | column -t;
 
 # Truncate Node Log
+echo -e "\n\nTruncating node log...\n"
+sizeOld=$(du -x ${nodeDir}/data/node.log | awk '{print $1}')
 truncate -s 0 ${nodeDir}/data/node.log
+truncateStatus=${?}
+sizeNew=$(du -x ${nodeDir}/data/node.log | awk '{print $1}')
+echo -e "\nExit Status: ${truncateStatus}\n"
+echo -e "\n\tOld Size: ${sizeOld}\n\tNew Size: ${sizeNew}\n\n"
+
