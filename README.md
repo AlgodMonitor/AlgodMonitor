@@ -14,7 +14,7 @@ Description
 
 Suite of monitoring utilities for Algorand nodes.
 
-Includes all functions needed to monitor and manage a participation node.  
+Provides abiility to track key performance indicators over time.
 
 
 -------------------------------------------------------------------------
@@ -24,14 +24,14 @@ Features
 Generates reports showing the following data:
  - Node Synchronization
  - Node Errors
- - Storage Utilization
+ - Storage Use
+ - Network Peers
+ - Network Errors
  - Consensus Participation
  - Participation Key Expiration
  - Token Balances
  - Token Supply
  - Token Online Stake
- - Network Peers
- - Network Errors
 
 
 -------------------------------------------------------------------------
