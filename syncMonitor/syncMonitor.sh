@@ -4,6 +4,8 @@
 # 
 #  Donations: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 #
+#  Copyright 2021 - Consiglieri-cfi
+#
 
 # Initialization
 sourceDir=$(dirname "$0");
