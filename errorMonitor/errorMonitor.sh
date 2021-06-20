@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#  algodMon v1.1 - errorMonitor - Node Error Monitor
+#  algodMon v1.11 - errorMonitor - Node Error Monitor
 # 
 #  Donate/Register: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 #
