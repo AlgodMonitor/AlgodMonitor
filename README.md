@@ -44,11 +44,14 @@ Significant enhancements are also in progress for the Network Monitor.
 
  - Network Error Monitor
  - Network Utilization Monitor
- - Participation Key Setup
- - Alert Function
+ - Error Monitor Improvements
+ - Host Alert Function
  - Host Performance Monitor
+ - Performance telemetry capture
+ - Performance telemetry transmit
+ - Participation Key Setup
  - Archive Node Features
- 
+
  
 -------------------------------------------------------------------------
 Donations
