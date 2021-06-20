@@ -5,10 +5,18 @@
 #  Donations: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 #
 
-# Set ALGORAND_DATA and nodePath
+# Initialization
 sourceDir=$(dirname "$0");
-brk=$(printf '=%.0s' {1..60}); brks=$(printf '=%.0s' {1..30});
+currentDate=$(date +%Y-%m-%d);
+currentSecond=$(date +%H:%M:%S);
+currentEpoch=$(date +%s);
+currentTime=$(echo -e "${currentDate} ${currentSecond}");
+brk=$(printf '=%.0s' {1..120}); brkm=$(printf '=%.0s' {1..70}); brks=$(printf '=%.0s' {1..30});
+
+# Set ALGORAND_DATA and nodePath
 echo -e "\n\n${brk}\nalgodMon - syncMonitor - Node Synchronization Monitor\n${brk}";
+
+# Configuration - Data Directory
 if [[ ! -f ${sourceDir}/monitorConfig.cfg ]]; then
 	echo -e "\n\n${brks}\nConfiguration - Algorand Data\n${brks}";
 	echo -e "\nPlease specify the path to the ALGORAND_DATA directory...\n\nExample: $HOME/node/data\n\n"; read ALGORAND_DATA;
@@ -18,63 +26,34 @@ if [[ ! -f ${sourceDir}/monitorConfig.cfg ]]; then
 else
 source ${sourceDir}/monitorConfig.cfg;
 fi;
-nodePath=$(echo ${ALGORAND_DATA} | sed 's/\/node\/data/\/node/g');
-echo -e "\n${brks}\nCurrent Config\n${brks}\n\n\tALGORAND_DATA=${ALGORAND_DATA}\n\tnodePath=${nodePath}"
 
-# Goal - Get Status
+# Configuration - Report
+nodePath=$(echo ${ALGORAND_DATA} | sed 's/\/node\/data/\/node/g');
+echo -e "\n${brks}\nCurrent Config\n${brks}\n\n\tALGORAND_DATA=${ALGORAND_DATA}\n\tnodePath=${nodePath}\n\tsourceDir=${sourceDir}"
+
+# Goal - Check Status
+sourceDir=$(dirname "$0");
 echo -e "\n\n${brk}\nNode Synchronization Check\n${brk}";
-echo -e "\nProcessing:  Loaded Config\n\tALGORAND_DATA=${ALGORAND_DATA}\n\tnodePath=${nodePath}\n\tsourceDir=${sourceDir}"
-echo -e "\nProcessing:  ${nodePath}/goal node status\n\n"
+echo -e "\nProcessing:  ${nodePath}/goal node status\n"
 ${nodePath}/goal node status 2> ${sourceDir}/lastStatus.err > ${sourceDir}/lastStatus;
-cat ${sourceDir}/lastStatus;
 
 # Goal - Error handling
 errorCheck=$(echo $?)
 if [[ ${errorCheck} -gt 0 ]]; then 
-	echo -e "\nError:  Execution failed\nExit status:  $?";
-	echo -e "\n\n${brks}\nNext Step\n${brks}\nPlease retry manual execution of the command:  ${nodePath}/goal node status\n\nCheck log files:"
-	echo -e "\t${sourceDir}/lastStatus.err\n\t${sourceDir}";
-	echo -e "\n${brks}\n"; cat ${sourceDir}/lastStatus.err; cat ${sourceDir}/lastStatus; echo ""
-	kill -9 $BASHPID
-fi
-
-# Sync Report - Write function
-currentTime=$(echo -e "$(date +%Y-%m-%d)  $(date +%H:%M:%S)");
-lastBlock=$(grep "Last committed block:" ${sourceDir}/lastStatus);
-diskMonitor=$(du ${ALGORAND_DATA} --summarize | awk '{print $1}');
-syncMonitor=$(grep "Catchpoint accounts processed:\|Catchpoint downloaded blocks:\|Catchpoint accounts verified:\|Round for next consensus protocol:" ${sourceDir}/lastStatus | tail -n 1);
-syncTime=$(grep "Sync Time:" ${sourceDir}/lastStatus)
-echo -e "${currentTime} \t ${diskMonitor} \t ${lastBlock} \t ${syncMonitor} \t ${syncTime}" >> ${sourceDir}/monitorSync.log;
-
-# Sync Report - Monitor function
-echo -e "\n\n${brk}\nNode Synchronization Report\n${brk}\n";
-echo -e "Date \t    Time \t Last Block \t Node Status";
-head -n 1 ${sourceDir}/monitorSync.log;
-tail -n 17 ${sourceDir}/monitorSync.log;
-
-# Node Health - Error Check
-echo -e "\n\n${brk}\nNode Error Check\n${brk}";
-echo -e "\nDo you want to check 'node.log' for errors? (y/n)\n\n"; read errorCheck
-if [[ ${errorCheck} = "y" ]]; then 
-currentEpoch=$(date +%s);
-lastEpoch=$(ls -1tr ${sourceDir}/nodeErrors.log-* 2> /dev/null | tail -n 1);
-grep -a "err\|warn" ${ALGORAND_DATA}/node.log > ${sourceDir}/nodeErrors.log;
-errorCount=$(wc -l ${sourceDir}/nodeErrors.log | awk '{print $1}');
-mv ${sourceDir}/nodeErrors.log ${sourceDir}/nodeErrors.log-${currentEpoch};
-if [[ ${errorCount} -gt 0 ]]; then
-	echo -e "\n\nWARNING: Errors detected in algod log:  ${ALGORAND_DATA}/node.log\n\nPlease provide error log for review: ${sourceDir}/nodeErrors.log-${currentEpoch}\n\n"
-	tail ${sourceDir}/nodeErrors.log-${currentEpoch}
-else
-	echo -e "\n\nNo errors found in algod log:  ${ALGORAND_DATA}/node.log" 
+        echo -e "\nError:  Execution failed\nExit status:  $?";
+        echo -e "\n\n${brks}\nNext Step\n${brks}\nPlease retry manual execution of the command:  ${nodePath}/goal node status\n\nCheck log files:"
+        echo -e "\t${sourceDir}/lastStatus\n\t${nodePath}/lastStatus.err\n\t${ALGORAND_DATA}/node.log\n\n";
+        kill -9 $BASHPID
 fi;
+echo -e "\nDone.\n"
 
-ls -l ${lastEpoch} > /dev/null 2>&1
-epochStatus=$(echo $?)
+# Synchronization - Check Status
+diskMonitor=$(du ${ALGORAND_DATA} --summarize | awk '{print $1}');
+syncMonitor=$(grep "Catchpoint accounts processed:\|Catchpoint downloaded blocks:\|Catchpoint accounts verified:\|Round for next consensus protocol:" ${sourceDir}/lastStatus | tail -n 1 | awk '{print $NF}');
+lastBlock=$(grep "Last committed block:" ${sourceDir}/lastStatus | awk '{print $NF}');
+syncTime=$(grep "Sync Time:" ${sourceDir}/lastStatus | awk '{print $NF}')
+echo -e "${currentTime} ${diskMonitor} ${lastBlock} ${syncMonitor} ${syncTime}" >> ${sourceDir}/monitorSync.log;
 
-if [[ ${epochStatus} == 0 ]]; then
-diff ${lastEpoch} ${sourceDir}/nodeErrors.log-${currentEpoch} >/dev/null 2>&1
-diffStatus=$(echo $?)
-if [[ ${diffStatus} == 0 ]]; then
-rm -f ${lastEpoch};
-echo -e "\nError File:  ${sourceDir}/nodeErrors.log-${currentEpoch}"
-fi; fi; fi;
+# Synchronization - Report
+echo -e "\n${brk}\nNode Synchronization Report\n${brk}\n";
+echo -e "Date Time Disk_Util Last_Block Round Sync\n$(head -n 1 ${sourceDir}/monitorSync.log)\n$(tail -n 17 ${sourceDir}/monitorSync.log)" | column -t
