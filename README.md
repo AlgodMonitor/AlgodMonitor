@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------
-Name
+Release Information
 -------------------------------------------------------------------------
 Name: algodMonitor
 
@@ -47,7 +47,7 @@ Significant enhancements are also in progress for the Network Monitor.
  - Participation Key Setup
  - Alert Function
  - Host Performance Monitor
- - Archive Node features
+ - Archive Node Features
  
  
 -------------------------------------------------------------------------
