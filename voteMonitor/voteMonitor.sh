@@ -27,7 +27,7 @@ echo -e "\n\nYou have entered the following account..\n\n\t${participationWallet
 echo -e "\n\nIs this value correct? (y/n)\n\n"; read validateKey;
 if [ $validateKey = "y" ]; then
 echo -e "\n\nWriting configuration file..."
-echo -e "participationWallet=${participationWallet}" > partWallet.src
+echo -e "participationWallet=${participationWallet}" > ${sourceDir}/partWallet.src
 echo -e "\n\nDone."
 else
 echo -e "\n\nPlease run again to retry key entry.\n\n"
