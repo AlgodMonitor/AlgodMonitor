@@ -72,7 +72,6 @@ Link: https://discord.com/invite/nxrYwdxDSf
 -------------------------------------------------------------------------
 syncMonitor
 -------------------------------------------------------------------------
-
 - Node Synchronization Check
 - Node Synchronization Report
 
@@ -80,19 +79,30 @@ syncMonitor
 -------------------------------------------------------------------------
 partkeyMonitor
 -------------------------------------------------------------------------
-
-
-
-
--------------------------------------------------------------------------
-
--------------------------------------------------------------------------
-
-
+- Report participation key expiration date 
+- Generate time series report
 
 
 -------------------------------------------------------------------------
+voteMonitor
+-------------------------------------------------------------------------
+- Count your votes in participation
+- Generate time series report
+- Call 'errorMonitor'
+
 
 -------------------------------------------------------------------------
+errorMonitor
+-------------------------------------------------------------------------
+- Check 'node.log' for errors
+- Check 'node.log' for warnings
+- Generate output with diagnostic messages
+- Rotate 'node.log'
 
 
+-------------------------------------------------------------------------
+tokenMonitor
+-------------------------------------------------------------------------
+- Monitor Supply
+- Monitor Online Stake
+- Monitor Wallet Balance
