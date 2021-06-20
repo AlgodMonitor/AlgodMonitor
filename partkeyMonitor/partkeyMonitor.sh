@@ -8,6 +8,8 @@
 #
 
 # Initialization
+export ALGORAND_DATA=~/node/data;
+nodeDir=~/node;
 sourceDir=$(dirname "$0");
 currentDate=$(date +%Y-%m-%d);
 currentSecond=$(date +%H:%M:%S);
