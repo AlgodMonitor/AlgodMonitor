@@ -12,8 +12,6 @@ currentSecond=$(date +%H:%M:%S);
 currentEpoch=$(date +%s);
 currentTime=$(echo -e "${currentDate} ${currentSecond}");
 brk=$(printf '=%.0s' {1..120}); brkm=$(printf '=%.0s' {1..70}); brks=$(printf '=%.0s' {1..30});
-
-# Set ALGORAND_DATA and nodePath
 echo -e "\n\n${brk}\nalgodMon - syncMonitor - Node Synchronization Monitor\n${brk}";
 
 # Configuration - Data Directory
@@ -28,6 +26,7 @@ source ${sourceDir}/monitorConfig.cfg;
 fi;
 
 # Configuration - Report
+export ALGORAND_DATA=${ALGORAND_DATA};
 nodePath=$(echo ${ALGORAND_DATA} | sed 's/\/node\/data/\/node/g');
 echo -e "\n${brks}\nCurrent Config\n${brks}\n\n\tALGORAND_DATA=${ALGORAND_DATA}\n\tnodePath=${nodePath}\n\tsourceDir=${sourceDir}"
 
@@ -41,7 +40,7 @@ ${nodePath}/goal node status 2> ${sourceDir}/lastStatus.err > ${sourceDir}/lastS
 errorCheck=$(echo $?)
 if [[ ${errorCheck} -gt 0 ]]; then 
         echo -e "\nError:  Execution failed\nExit status:  $?";
-        echo -e "\n\n${brks}\nNext Step\n${brks}\nPlease retry manual execution of the command:  ${nodePath}/goal node status\n\nCheck log files:"
+        echo -e "\n\n${brks}\nNext Step\n${brks}\nPlease retry manual execution of the command:\n\t${nodePath}/goal node status\n\nCheck log files:"
         echo -e "\t${sourceDir}/lastStatus\n\t${nodePath}/lastStatus.err\n\t${ALGORAND_DATA}/node.log\n\n";
         kill -9 $BASHPID
 fi;
