@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#  algodMon v1.0 - networkMonitor - Network Monitor Report
+#  algodMon v1.1 - networkMonitor - Network Monitor Report
 # 
 #  Donate/Register: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 #
@@ -24,7 +24,7 @@ netstat -natp 2>/dev/null > ${sourceDir}/netstat-${currentEpoch}
 grep algod ${sourceDir}/netstat-${currentEpoch} | awk '{print $5}' > ${sourceDir}/peersCurrent.log
 
 # Lookup peers
-while read ipAddr; do nslookup $(echo $ipAddr | awk -F: '{print $1}'); done < ${sourceDir}/peersCurrent.log | grep "name =" | tee -a peersCurrentLookup.log
+while read ipAddr; do nslookup $(echo $ipAddr | awk -F: '{print $1}'); done < ${sourceDir}/peersCurrent.log | grep "name =" | tee -a ${sourceDir}/peersCurrentLookup.log
 
 # Remove netstat
 rm -f ${sourceDir}/netstat-${currentEpoch}
