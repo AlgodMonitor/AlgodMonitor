@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#  algodMon - syncMonitor - v1.1 - Node Synchronization Monitor
+#  algodMon v1.1 - syncMonitor - Node Synchronization Monitor
 # 
 #  Donations: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 #
