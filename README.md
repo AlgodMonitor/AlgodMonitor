@@ -73,7 +73,7 @@ Significant enhancements are also in progress for the Network Monitor.
 
 
 -------------------------------------------------------------------------
-Registration (via Discord)
+Support & Feedback
 -------------------------------------------------------------------------
 
 Username: Consiglieri#4724
