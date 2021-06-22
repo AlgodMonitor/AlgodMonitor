@@ -1,5 +1,5 @@
 #!/bin/bash
-#  algodMon v1.2 - Algorand Node Monitoring - Setup Utility
+#  algodMon v1.2 - Algorand Node Monitoring - Configuration Utility
 #
 #  Donate/Register: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 #
