@@ -48,7 +48,7 @@ Installation
 Development Fund
 -------------------------------------------------------------------------
 
-Support development of 'algodMon' and earn NFT rewards! :money_with_wings:
+Support development of 'algodMon' and earn NFT rewards!
 
 Address: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 
