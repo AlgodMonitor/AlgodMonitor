@@ -14,21 +14,11 @@ kill ${BASHPID}; else source ${globalValues}; fi;
 # Banner
 echo -e "\n\n${brk}\nalgodMon - storageMonitor - Storage Utilization Monitor - Initialization\n${brk}";
 
-# Configuration - Set Data Director
-storageConfig=${configDir}/dataDir.cfg
-if [ ! -f ${storageConfig} ]; then
-echo -e "\n\nPlease enter path to the data directory...\n\nExample: ${HOME}/node/data/mainnet-v1.0\n\nNote: Do not include '~' in path."
-read dataDir;
-echo -e "dataDir=${dataDir}" > ${storageConfig}
-else
-source ${storageConfig};
-echo -e "\n\nLoaded configuration: ${storageConfig}\n\nData Directory: ${dataDir}\n";
-fi;
-
 # Execution Tracker
 echo -e "\n\nLast Executed: $(date -r ${logDir}/monitorStorage.log +"%Y-%m-%d %H:%M:%S" 2</dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
 
 # Count - Update
+networkDir=${dataDir}/*net*;
 storageLog=${logDir}/monitorStorage.log;
 diskUtilization=$(du -xL ${dataDir}/../ --max-depth=0 | awk '{print $1}');
 sizeBlock=$(ls -l ${dataDir}/ledger.block.sqlite | awk '{print $5}');
