@@ -26,7 +26,7 @@ if [ ${checkConf} -gt 0 ]; then
 echo -e "\n\n${brkm}\nExisting Configuration\n${brkm}\n"
 echo -e "Existing configuration settings has been found.\n\nPlease review and confirm settings are correct.\n"
 echo -e "\n\tPath: ${configFile}\n";
-echo -e "\n${brks}\nValidate Settings\n${brks}\n"; grep "# Data\|dataDir\|nodeDir" ${configFile};
+echo -e "\n${brks}\nValidation\n${brks}\n"; grep "# Data\|dataDir\|nodeDir" ${configFile};
 echo -e "\n\n\nAre the value shown correct? (y/n)\n\n"; read checkConf;
 if [ ${checkConf} = "n" ]; then
 echo -e "\n\n${brkm}\nClear Configuration\n${brkm}\n";
