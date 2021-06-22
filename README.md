@@ -48,7 +48,9 @@ Installation
 Development Fund
 -------------------------------------------------------------------------
 
-Support development of 'algodMon' and earn NFT rewards!
+Please support 'algodMonitor' development fund!
+
+For a limited edition NFT put 'QUANTUM' in the note field!
 
 Address: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 
