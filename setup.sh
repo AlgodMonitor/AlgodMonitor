@@ -9,6 +9,9 @@
 sourceDir=$(dirname "$0");
 configFile=${sourceDir}/config/globalValues.cfg;
 chmod +x $(find ${sourceDir} -name "*.sh");
+mkdir ${sourceDir}/logs;
+mkdir ${sourceDir}/logs/nodeMessages;
+mkdir ${sourceDir}/logs/networkPeers;
 
 # Banner
 brk=$(printf '=%.0s' {1..120}); brkm=$(printf '=%.0s' {1..70}); brks=$(printf '=%.0s' {1..30});
