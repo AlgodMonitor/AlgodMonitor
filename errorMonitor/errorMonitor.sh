@@ -14,23 +14,10 @@ kill ${BASHPID}; else source ${globalValues}; fi;
 # Banner
 echo -e "\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - Initialization\n${brk}";
 
-# Configuration - Data Directory
-if [[ ! -f ${configDir}/monitorConfig.cfg ]]; then
-        echo -e "\n\n${brks}\nConfiguration - Algorand Data\n${brks}";
-        echo -e "\nPlease specify the path to the ALGORAND_DATA directory...\n\nExample: $HOME/node/data\n\n"; read ALGORAND_DATA;
-        echo -e "\n\nYou have entered: ${ALGORAND_DATA}\n"
-        echo -e "\n${brks}\nSaving Config\n${brks}\n\nWriting config: ${configDir}/monitorSync.cfg";
-        echo "ALGORAND_DATA=${ALGORAND_DATA}" > ${configDir}/monitorConfig.cfg; echo -e "\nDone.\n";
-else
-source ${configDir}/monitorConfig.cfg;
-fi;
-
 # Execution Tracker
-echo -e "\n\nLast Executed: $(date -r ${logDir}/monitorError.log +"%Y-%m-%d %H:%M:%S" 2>/dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
-
+echo -e "\nLast Executed: $(date -r ${logDir}/monitorError.log +"%Y-%m-%d %H:%M:%S" 2>/dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
 
 # Error Monitor - Processing
-#
 echo -e "\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - Processing\n${brk}\n";
 
 # Set File Names
@@ -45,9 +32,9 @@ lastEpochWarn=$(ls -1tr ${warnReport}-* 2> /dev/null | tail -n 1);
 
 # Node Log - Messages Parsers
 echo -e "Processing:  Check 'node.log' for error messages...";
-grep -a "err" ${ALGORAND_DATA}/node.log > ${errorReport};
+grep -a "err" ${dataDir}/node.log > ${errorReport};
 echo -e "Processing:  Check 'node.log' for warning messages...";
-grep -a "warn" ${ALGORAND_DATA}/node.log > ${warnReport};
+grep -a "warn" ${dataDir}/node.log > ${warnReport};
 
 # Node Log - Count Messages
 echo -e "Processing:  Count error messages: ${errorReport}";
@@ -55,9 +42,7 @@ errorCount=$(wc -l ${errorReport} | awk '{print $1}');
 echo -e "Processing:  Count warning messages: ${warnReport}"
 warnCount=$(wc -l ${warnReport} | awk '{print $1}');
 
-
 # Error Monitor - Report
-#
 echo -e "\n\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - Report\n${brk}";
 
 # errorReport - Errors Detected
@@ -88,7 +73,6 @@ echo -e "\nNew error messages have been reported.\n\n"
 dailyError=1;
 fi; fi;
 
-
 # errorReport - Warning Detected
 mv ${warnReport} ${warnReport}-${currentEpoch};
 echo -e "\n\n${brkm}\nWarning Report\n${brkm}";
@@ -117,9 +101,7 @@ echo -e "\nNew error messages have been reported.\n\n"
 dailyWarn=1;
 fi; fi;
 
-
 # Error Monitor - Historical
-#
 echo -e "\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - History\n${brk}\n";
 errorHistory=${logDir}/monitorError.log
 
@@ -140,10 +122,10 @@ fi; fi;
 
 # Truncate Node Log
 echo -e "\n\nTruncating node log...\n"
-sizeBefore=$(du -x ${nodeDir}/data/node.log | awk '{print $1}')
-truncate -s 0 ${nodeDir}/data/node.log
+sizeBefore=$(du -x ${dataDir}/node.log | awk '{print $1}')
+truncate -s 0 ${dataDir}/node.log
 truncateStatus=${?}
-sizeAfter=$(du -x ${nodeDir}/data/node.log | awk '{print $1}')
+sizeAfter=$(du -x ${dataDir}/node.log | awk '{print $1}')
 echo -e "\nExit Status: ${truncateStatus}\n"
 echo -e "\n\tOld Size: ${sizeBefore}\n\tNew Size: ${sizeAfter}\n\n"
 
