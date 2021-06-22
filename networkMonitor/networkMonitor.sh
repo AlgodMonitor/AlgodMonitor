@@ -7,19 +7,12 @@
 #  Copyright 2021 - Consiglieri-cfi
 #
 
-# Set variables
-#
-nodeDir=~/node;
-sourceDir=$(dirname "$0");
-logDir=${sourceDir}/../logs;
-configDir=${sourceDir}/../config;
-currentDate=$(date +%Y-%m-%d);
-currentSecond=$(date +%H:%M:%S);
-currentEpoch=$(date +%s);
-currentTime=$(echo -e "${currentDate}  ${currentSecond}");
-brk=$(printf '=%.0s' {1..120}); brkm=$(printf '=%.0s' {1..70}); brks=$(printf '=%.0s' {1..30});
-export ALGORAND_DATA=~/node/data;
-nodePath=$(echo ${ALGORAND_DATA} | sed 's/\/node\/data/\/node/g');
+# Initialization
+globalSettings=$(dirname "$0")/../config/globalSettings.cfg;
+source ${globalSettings};
+
+# Export ALGORAND_DATA
+export ALGORAND_DATA=${dataDir};
 
 # Network monitor report
 echo -e "\n\n${brk}\nalgodMon - networkMonitor - Network Monitor Report\n${brk}";
