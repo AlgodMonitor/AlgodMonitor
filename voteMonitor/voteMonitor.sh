@@ -19,7 +19,8 @@ if [ -f ${configDir}/partWallet.cfg ]; then
 source ${configDir}/partWallet.cfg;
 echo -e "\n\nLoaded configuration: ${configDir}/partWallet.cfg\n\nParticipation Wallet: ${participationWallet}\n";
 else
-echo -e "\n\nPlease enter the address for your participation key...\n"
+echo -e "${brkm}\nEnter Participation Account\n${brkm}\n"
+echo -e "Please enter the address for your participation key...\n"
 read participationWallet;
 echo -e "\n\nYou have entered the following account..\n\n\t${participationWallet}\n"
 echo -e "\n\nIs this value correct? (y/n)\n\n"; read validateKey;
