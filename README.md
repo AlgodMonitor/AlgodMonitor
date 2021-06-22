@@ -3,7 +3,7 @@ Release Information
 -------------------------------------------------------------------------
 Name: algodMonitor
 
-Version: 1.1
+Version: 1.2
 
 Copyright: 2021
 
@@ -32,6 +32,15 @@ Generates reports showing the following data:
  - Token Balances
  - Token Supply
  - Token Online Stake
+
+
+-------------------------------------------------------------------------
+Installation
+-------------------------------------------------------------------------
+
+git clone https://github.com/consiglieri-cfi/algodMonitor
+chmod +x ./aglodMonitor/config.sh
+./algodMonitor/config.sh
 
 
 -------------------------------------------------------------------------
