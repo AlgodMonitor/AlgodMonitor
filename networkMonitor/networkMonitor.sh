@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#  algodMon v1.1 - networkMonitor - Network Monitor Report
+#  algodMon v1.2 - networkMonitor - Network Monitor Report
 #
 #  Copyright 2021 - Consiglieri-cfi
 #
