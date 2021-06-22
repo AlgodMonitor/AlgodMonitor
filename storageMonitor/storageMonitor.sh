@@ -19,7 +19,7 @@ brk=$(printf '=%.0s' {1..120}); brks=$(printf '=%.0s' {1..30});
 echo -e "\n\n${brk}\nalgodMon - storageMonitor - Storage Utilization Monitor - Initialization\n${brk}";
 
 # Configuration - Set Data Director
-storageConfig=${sourceDir}/dataDir.cfg
+storageConfig=${configDir}/dataDir.cfg
 if [ ! -f ${storageConfig} ]; then
 echo -e "\n\nPlease enter path to the data directory...\n\nExample: ${HOME}/node/data/mainnet-v1.0\n\nNote: Do not include '~' in path."
 read dataDir;
