@@ -63,8 +63,10 @@ Significant enhancements are also in progress for the Network Monitor.
 
  
 -------------------------------------------------------------------------
-Donations
+Development Fund
 -------------------------------------------------------------------------
+
+Support development of 'algodMon' and earn NFT rewards!
 
 Address: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 
