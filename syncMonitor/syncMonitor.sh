@@ -13,37 +13,23 @@ if [ ! -f ${globalSettings} ]; then
 echo -e "\n\nERROR: Missing configuration file!\n\nExpected Path: ${globalSettings}\n\n";
 kill ${BASHPID}; else source ${globalSettings}; fi;
 
+# Export ALGORAND_DATA
+export ALGORAND_DATA=${dataDir};
+
 # Banner
 echo -e "\n\n${brk}\nalgodMon - syncMonitor - Node Synchronization Monitor\n${brk}";
 
-# Configuration - Data Directory
-if [[ ! -f ${configDir}/monitorConfig.cfg ]]; then
-	echo -e "\n\n${brks}\nConfiguration - Algorand Data\n${brks}";
-	echo -e "\nPlease specify the path to the ALGORAND_DATA directory...\n\nExample: $HOME/node/data\n\n"; read ALGORAND_DATA;
-	echo -e "\n\nYou have entered: ${ALGORAND_DATA}\n"
-	echo -e "\n${brks}\nSaving Config\n${brks}\n\nWriting config: ${sourceDir}/monitorSync.cfg";
-	echo "ALGORAND_DATA=${ALGORAND_DATA}" > ${configDir}/monitorConfig.cfg; echo -e "\nDone.\n";
-else
-source ${configDir}/monitorConfig.cfg;
-fi;
-
-# Configuration - Report
-export ALGORAND_DATA=${ALGORAND_DATA};
-nodePath=$(echo ${ALGORAND_DATA} | sed 's/\/node\/data/\/node/g');
-echo -e "\n${brks}\nCurrent Config\n${brks}\n\n\tALGORAND_DATA=${ALGORAND_DATA}\n\tnodePath=${nodePath}\n\tsourceDir=${sourceDir}"
-
 # Goal - Check Status
-sourceDir=$(dirname "$0");
 echo -e "\n\n${brk}\nNode Synchronization Check\n${brk}";
-echo -e "\nProcessing:  ${nodePath}/goal node status\n"
-${nodePath}/goal node status 2> ${sourceDir}/lastStatus.err > ${sourceDir}/lastStatus;
+echo -e "\nProcessing:  ${nodeDir}/goal node status\n"
+${nodeDir}/goal node status 2> ${sourceDir}/lastStatus.err > ${sourceDir}/lastStatus;
 
 # Goal - Error handling
 errorCheck=$(echo $?)
 if [[ ${errorCheck} -gt 0 ]]; then 
         echo -e "\nError:  Execution failed\nExit status:  $?";
-        echo -e "\n\n${brks}\nNext Step\n${brks}\nPlease retry manual execution of the command:\n\t${nodePath}/goal node status\n\nCheck log files:"
-        echo -e "\t${sourceDir}/lastStatus\n\t${nodePath}/lastStatus.err\n\t${ALGORAND_DATA}/node.log\n\n";
+        echo -e "\n\n${brks}\nNext Step\n${brks}\nPlease retry manual execution of the command:\n\t${nodeDir}/goal node status\n\nCheck log files:"
+        echo -e "\t${sourceDir}/lastStatus\n\t${dataDir}/lastStatus.err\n\t${ALGORAND_DATA}/node.log\n\n";
         kill -9 $BASHPID
 fi;
 echo -e "\nDone.\n"
