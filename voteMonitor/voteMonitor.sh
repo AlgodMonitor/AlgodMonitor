@@ -8,15 +8,8 @@
 #
 
 # Initialization
-nodeDir=~/node;
-sourceDir=$(dirname "$0");
-logDir=${sourceDir}/../logs;
-configDir=${sourceDir}/../config;
-currentDate=$(date +%Y-%m-%d);
-currentSecond=$(date +%H:%M:%S);
-currentEpoch=$(date +%s);
-currentTime=$(echo -e "${currentDate}  ${currentSecond}");
-brk=$(printf '=%.0s' {1..120}); brks=$(printf '=%.0s' {1..30});
+globalSettings=$(dirname "$0")/../config/globalSettings.cfg;
+source ${globalSettings};
 echo -e "\n\n${brk}\nalgodMon - voteMonitor - Consensus Vote Monitor - Initialization\n${brk}";
 
 # Configuration - Part Key Address
@@ -52,17 +45,18 @@ echo -e "\n\nLast Executed: $(date -r ${sourceDir}/pastVote.src +"%Y-%m-%d %H:%M
 # Count - Update
 currentVotes=$(grep -a VoteBroadcast ~/node/data/node.log | grep ${participationWallet} | wc -l); 
 totalVotes=$(expr ${pastVotes} + ${currentVotes});
-dailyVotes=$(expr $(grep ${currentDate} ${logDir}/totalVote.log | awk '{sum+=$4}END{print sum}') + ${currentVotes})
+dailyVotes=$(expr $(grep ${currentDate} ${logDir}/totalVotes.log | awk '{sum+=$4}END{print sum}') + ${currentVotes})
 
 # Count - Write
 echo -e "pastVotes=${totalVotes}" > ${sourceDir}/pastVote.src
-echo -e "${currentTime} \t ${pastVotes} \t ${currentVotes} \t ${dailyVotes} \t ${totalVotes}" >> ${logDir}/totalVote.log
+echo -e "${currentTime} \t ${pastVotes} \t ${currentVotes} \t ${dailyVotes} \t ${totalVotes}" >> ${logDir}/totalVotes.log
 
 # Count - Report
 echo -e "\n\n${brk}\nalgodMon - voteMonitor - Consensus Vote Monitor - Report\n${brk}\n";
-echo -e "Date Time Previous Current Today Total\n$(tail -n 20 ${logDir}/totalVote.log)" | column -t
+echo -e "Date Time Previous New Today Total\n$(tail -n 20 ${logDir}/totalVotes.log)" | column -t
 
 # Call Error Monitor
+echo -e "\n\n\nCalling 'errorMonitor' to report errors and truncate node log...\n\n";
 ${sourceDir}/../errorMonitor/errorMonitor.sh;
 
 # EOF
