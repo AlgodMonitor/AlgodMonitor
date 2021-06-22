@@ -10,6 +10,8 @@
 # Initialization
 nodeDir=~/node;
 sourceDir=$(dirname "$0");
+logDir=${sourceDir}/../logs;
+configDir=${sourceDir}/../config;
 currentDate=$(date +%Y-%m-%d);
 currentSecond=$(date +%H:%M:%S);
 currentEpoch=$(date +%s);
@@ -18,18 +20,18 @@ brk=$(printf '=%.0s' {1..120}); brkm=$(printf '=%.0s' {1..70}); brks=$(printf '=
 echo -e "\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - Initialization\n${brk}";
 
 # Configuration - Data Directory
-if [[ ! -f ${sourceDir}/monitorConfig.cfg ]]; then
+if [[ ! -f ${configDir}/monitorConfig.cfg ]]; then
         echo -e "\n\n${brks}\nConfiguration - Algorand Data\n${brks}";
         echo -e "\nPlease specify the path to the ALGORAND_DATA directory...\n\nExample: $HOME/node/data\n\n"; read ALGORAND_DATA;
         echo -e "\n\nYou have entered: ${ALGORAND_DATA}\n"
-        echo -e "\n${brks}\nSaving Config\n${brks}\n\nWriting config: ${sourceDir}/monitorSync.cfg";
-        echo "ALGORAND_DATA=${ALGORAND_DATA}" > ${sourceDir}/monitorConfig.cfg; echo -e "\nDone.\n";
+        echo -e "\n${brks}\nSaving Config\n${brks}\n\nWriting config: ${configDir}/monitorSync.cfg";
+        echo "ALGORAND_DATA=${ALGORAND_DATA}" > ${configDir}/monitorConfig.cfg; echo -e "\nDone.\n";
 else
-source ${sourceDir}/monitorConfig.cfg;
+source ${configDir}/monitorConfig.cfg;
 fi;
 
 # Execution Tracker
-echo -e "\n\nLast Executed: $(date -r ${sourceDir}/nodeMonitor.log +"%Y-%m-%d %H:%M:%S" 2>/dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
+echo -e "\n\nLast Executed: $(date -r ${logDir}/monitorError.log +"%Y-%m-%d %H:%M:%S" 2>/dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
 
 
 
@@ -38,8 +40,8 @@ echo -e "\n\nLast Executed: $(date -r ${sourceDir}/nodeMonitor.log +"%Y-%m-%d %H
 echo -e "\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - Processing\n${brk}\n";
 
 # Set File Names
-errorReport=${sourceDir}/nodeError.log
-warnReport=${sourceDir}/nodeWarn.log
+errorReport=${logDir}/nodeMessages/nodeError.log
+warnReport=${logDir}/nodeMessages/nodeWarn.log
 
 # Find last report
 echo -e "Processing:  Finding last error report...";
@@ -124,7 +126,7 @@ fi; fi;
 # Error Monitor - Historical
 #
 echo -e "\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - History\n${brk}\n";
-errorHistory=${sourceDir}/nodeMonitor.log
+errorHistory=${logDir}/monitorError.log
 
 # Count - Update
 if [ -f ${errorHistory} ]; then
@@ -141,12 +143,6 @@ else
 source ${sourceDir}/lastCountWarn.src 2>/dev/null;
 fi; fi;
 
-# Count - Write
-echo -e "${currentTime} \t ${errorCount} \t ${warnCount} \t ${dailyError} \t ${dailyWarn}" >> ${errorHistory};
-
-# Count - Display
-echo -e "Date Time Error Warning Err_Total Warn_Total\n$(tail -n 20 ${errorHistory})" | column -t;
-
 # Truncate Node Log
 echo -e "\n\nTruncating node log...\n"
 sizeOld=$(du -x ${nodeDir}/data/node.log | awk '{print $1}')
@@ -155,4 +151,10 @@ truncateStatus=${?}
 sizeNew=$(du -x ${nodeDir}/data/node.log | awk '{print $1}')
 echo -e "\nExit Status: ${truncateStatus}\n"
 echo -e "\n\tOld Size: ${sizeOld}\n\tNew Size: ${sizeNew}\n\n"
+
+# Count - Write
+echo -e "${currentTime} \t ${errorCount} \t ${warnCount} \t ${dailyError} \t ${dailyWarn} \t ${truncateStatus} \t ${sizeOld} \t ${sizeNew}" >> ${errorHistory};
+
+# Count - Display
+echo -e "Date Time Error Warning Err_Total Warn_Total Truncate SizeOld SizeNew\n$(tail -n 20 ${errorHistory})" | column -t;
 
