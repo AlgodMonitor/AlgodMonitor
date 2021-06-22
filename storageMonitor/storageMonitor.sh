@@ -9,6 +9,8 @@
 
 # Initialization
 sourceDir=$(dirname "$0");
+logDir=${sourceDir}/../logs;
+configDir=${sourceDir}/../config;
 currentDate=$(date +%Y-%m-%d);
 currentSecond=$(date +%H:%M:%S);
 currentEpoch=$(date +%s);
@@ -28,10 +30,10 @@ echo -e "\n\nLoaded configuration: ${storageConfig}\n\nData Directory: ${dataDir
 fi;
 
 # Execution Tracker
-echo -e "\n\nLast Executed: $(date -r ${sourceDir}/storage_monitor.log +"%Y-%m-%d %H:%M:%S" 2</dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
+echo -e "\n\nLast Executed: $(date -r ${logDir}/monitorStorage.log +"%Y-%m-%d %H:%M:%S" 2</dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
 
 # Count - Update
-storageLog=${sourceDir}/storage_monitor.log;
+storageLog=${logDir}/monitorStorage.log;
 diskUtilization=$(du -xL ${dataDir}/../ --max-depth=0 | awk '{print $1}');
 sizeBlock=$(ls -l ${dataDir}/ledger.block.sqlite | awk '{print $5}');
 sizeBlockSHM=$(ls -l ${dataDir}/ledger.block.sqlite-shm | awk '{print $5}');
