@@ -1,8 +1,6 @@
 #!/bin/bash
 #
 #  algodMon v1.2 - errorMonitor - Node Error Monitor
-# 
-#  Donate/Register: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 #
 #  Copyright 2021 - Consiglieri-cfi
 #
@@ -60,7 +58,7 @@ warnCount=$(wc -l ${warnReport} | awk '{print $1}');
 
 # Error Monitor - Report
 #
-echo -e "\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - Report\n${brk}";
+echo -e "\n\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - Report\n${brk}";
 
 # errorReport - Errors Detected
 mv ${errorReport} ${errorReport}-${currentEpoch};
@@ -147,7 +145,7 @@ truncate -s 0 ${nodeDir}/data/node.log
 truncateStatus=${?}
 sizeAfter=$(du -x ${nodeDir}/data/node.log | awk '{print $1}')
 echo -e "\nExit Status: ${truncateStatus}\n"
-echo -e "\n\tOld Size: ${sizeOld}\n\tNew Size: ${sizeNew}\n\n"
+echo -e "\n\tOld Size: ${sizeBefore}\n\tNew Size: ${sizeAfter}\n\n"
 
 # Count - Write
 echo -e "${currentTime} \t ${errorCount} \t ${warnCount} \t ${dailyError} \t ${dailyWarn} \t ${truncateStatus} \t ${sizeBefore} \t ${sizeAfter}" >> ${errorHistory};
