@@ -37,10 +37,20 @@ Generates reports showing the following data:
 -------------------------------------------------------------------------
 Installation
 -------------------------------------------------------------------------
-
+...
 git clone https://github.com/consiglieri-cfi/algodMonitor
 chmod +x ./aglodMonitor/config.sh
 ./algodMonitor/config.sh
+...
+
+ 
+-------------------------------------------------------------------------
+Development Fund
+-------------------------------------------------------------------------
+
+Support development of 'algodMon' and earn NFT rewards!
+
+Address: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 
 
 -------------------------------------------------------------------------
@@ -60,15 +70,6 @@ Significant enhancements are also in progress for the Network Monitor.
  - Performance telemetry transmit
  - Participation Key Setup
  - Archive Node Features
-
- 
--------------------------------------------------------------------------
-Development Fund
--------------------------------------------------------------------------
-
-Support development of 'algodMon' and earn NFT rewards!
-
-Address: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 
 
 -------------------------------------------------------------------------
