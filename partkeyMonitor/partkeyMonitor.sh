@@ -14,7 +14,7 @@ echo -e "\n\nERROR: Missing configuration file!\n\nExpected Path: ${globalSettin
 kill ${BASHPID}; else source ${globalSettings}; fi;
 
 # Export ALGORAND_DATA
-export ALGORAND_DATA=~/node/data;
+export ALGORAND_DATA=${dataDir};
 
 # Banner
 echo -e "\n\n${brk}\nalgodMon - partkeyMonitor - Participation Key Expiration - Initialization\n${brk}";
