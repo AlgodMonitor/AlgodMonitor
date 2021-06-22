@@ -42,7 +42,7 @@ echo -e "\n\nLoaded configuration: ${sourceDir}/pastVote.src\n\nPrevious vote co
 fi;
 
 # Execution Tracker
-echo -e "\n\nLast Executed: $(date -r ${sourceDir}/pastVote.src +"%Y-%m-%d %H:%M:%S")\nCurrent Time:  ${currentDate} ${currentSecond}\n"
+echo -e "\n\nLast Executed: $(date -r ${sourceDir}/pastVote.src +"%Y-%m-%d %H:%M:%S" 2>/dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
 
 # Count - Update
 currentVotes=$(grep -a VoteBroadcast ~/node/data/node.log | grep ${participationWallet} | wc -l); 
@@ -58,7 +58,7 @@ echo -e "\n\n${brk}\nalgodMon - voteMonitor - Consensus Vote Monitor - Report\n$
 echo -e "Date Time Previous New Today Total\n$(tail -n 20 ${logDir}/totalVotes.log)" | column -t
 
 # Call Error Monitor
-echo -e "\n\n\nCalling 'errorMonitor' to report errors and truncate node log...\n\n";
+echo -e "\n\n${brks}\nLog Cleanup\n${brks}\n\nCalling 'errorMonitor' to report errors and truncate node log...\n\n";
 ${sourceDir}/../errorMonitor/errorMonitor.sh;
 
 # EOF
