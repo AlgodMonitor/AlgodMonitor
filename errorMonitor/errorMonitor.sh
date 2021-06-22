@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#  algodMon v1.11 - errorMonitor - Node Error Monitor
+#  algodMon v1.2 - errorMonitor - Node Error Monitor
 # 
 #  Donate/Register: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 #
@@ -8,15 +8,8 @@
 #
 
 # Initialization
-nodeDir=~/node;
-sourceDir=$(dirname "$0");
-logDir=${sourceDir}/../logs;
-configDir=${sourceDir}/../config;
-currentDate=$(date +%Y-%m-%d);
-currentSecond=$(date +%H:%M:%S);
-currentEpoch=$(date +%s);
-currentTime=$(echo -e "${currentDate}  ${currentSecond}");
-brk=$(printf '=%.0s' {1..120}); brkm=$(printf '=%.0s' {1..70}); brks=$(printf '=%.0s' {1..30});
+globalSettings=$(dirname "$0")/../config/globalSettings.cfg;
+source ${globalSettings};
 echo -e "\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - Initialization\n${brk}";
 
 # Configuration - Data Directory
@@ -32,7 +25,6 @@ fi;
 
 # Execution Tracker
 echo -e "\n\nLast Executed: $(date -r ${logDir}/monitorError.log +"%Y-%m-%d %H:%M:%S" 2>/dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
-
 
 
 # Error Monitor - Processing
@@ -60,7 +52,6 @@ echo -e "Processing:  Count error messages: ${errorReport}";
 errorCount=$(wc -l ${errorReport} | awk '{print $1}');
 echo -e "Processing:  Count warning messages: ${warnReport}"
 warnCount=$(wc -l ${warnReport} | awk '{print $1}');
-
 
 
 # Error Monitor - Report
@@ -91,6 +82,7 @@ echo -e "Removing duplicate report:  ${errorReport}-${currentEpoch}"
 rm -f ${errorReport}-${currentEpoch};
 dailyError=0;
 else
+echo -e "\nNew error messages have been reported.\n\n"
 dailyError=1;
 fi; fi;
 
@@ -119,6 +111,7 @@ echo -e "Removing duplicate report:  ${errorReport}-${currentEpoch}"
 rm -f ${warnReport}-${currentEpoch};
 dailyWarn=0;
 else
+echo -e "\nNew error messages have been reported.\n\n"
 dailyWarn=1;
 fi; fi;
 
