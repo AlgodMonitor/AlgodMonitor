@@ -121,7 +121,7 @@ source ${sourceDir}/lastCountWarn.src 2>/dev/null;
 fi; fi;
 
 # Truncate Node Log
-echo -e "\n\nTruncating node log...\n"
+echo -e "\nTruncating node log...\n"
 sizeBefore=$(du -x ${dataDir}/node.log | awk '{print $1}')
 truncate -s 0 ${dataDir}/node.log
 truncateStatus=${?}
