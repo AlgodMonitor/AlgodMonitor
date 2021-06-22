@@ -8,16 +8,15 @@
 #
 
 # Initialization
+globalSettings=$(dirname "$0")/../config/globalSettings.cfg;
+if [ ! -f ${globalSettings} ]; then
+echo -e "\n\nERROR: Missing configuration file!\n\nExpected Path: ${globalSettings}\n\n";
+kill ${BASHPID}; else source ${globalSettings}; fi;
+
+# Export ALGORAND_DATA
 export ALGORAND_DATA=~/node/data;
-nodeDir=~/node;
-sourceDir=$(dirname "$0");
-logDir=${sourceDir}/../logs;
-configDir=${sourceDir}/../config;
-currentDate=$(date +%Y-%m-%d);
-currentSecond=$(date +%H:%M:%S);
-currentEpoch=$(date +%s);
-currentTime=$(echo -e "${currentDate}  ${currentSecond}");
-brk=$(printf '=%.0s' {1..120}); brkm=$(printf '=%.0s' {1..70}); brks=$(printf '=%.0s' {1..30});
+
+# Banner
 echo -e "\n\n${brk}\nalgodMon - tokenMonitor - Token Report - ${currentDate}\n${brk}";
 
 # Configuration - Add Wallet
