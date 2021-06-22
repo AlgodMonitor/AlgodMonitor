@@ -1,17 +1,15 @@
 #!/bin/bash
 #
-#  algodMon v1.1 - storageMonitor - Storage Utilization Monitor 
-# 
-#  Donate/Register: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
+#  algodMon v1.2 - storageMonitor - Storage Utilization Monitor 
 #
 #  Copyright 2021 - Consiglieri-cfi
 #
 
 # Initialization
-globalSettings=$(dirname "$0")/../config/globalSettings.cfg;
-if [ ! -f ${globalSettings} ]; then
-echo -e "\n\nERROR: Missing configuration file!\n\nExpected Path: ${globalSettings}\n\n";
-kill ${BASHPID}; else source ${globalSettings}; fi;
+globalValues=$(dirname "$0")/../config/globalValues.cfg;
+if [ ! -f ${globalValues} ]; then
+echo -e "\n\nERROR: Missing configuration file!\n\nExpected Path: ${globalValues}\n\n";
+kill ${BASHPID}; else source ${globalValues}; fi;
 
 # Banner
 echo -e "\n\n${brk}\nalgodMon - storageMonitor - Storage Utilization Monitor - Initialization\n${brk}";
