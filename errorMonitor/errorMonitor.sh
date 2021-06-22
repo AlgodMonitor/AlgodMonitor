@@ -9,7 +9,11 @@
 
 # Initialization
 globalSettings=$(dirname "$0")/../config/globalSettings.cfg;
-source ${globalSettings};
+if [ ! -f ${globalSettings} ]; then
+echo -e "\n\nERROR: Missing configuration file!\n\nExpected Path: ${globalSettings}\n\n";
+kill ${BASHPID}; else source ${globalSettings}; fi;
+
+# Banner
 echo -e "\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - Initialization\n${brk}";
 
 # Configuration - Data Directory
