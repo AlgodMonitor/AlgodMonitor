@@ -57,7 +57,7 @@ while read walletName walletAddress; do
 	walletPrefix=${walletName}-$(echo ${walletAddress} | cut -c1-7);
 	walletBalance=$(${nodeDir}/goal account balance -a ${walletAddress});
 	echo -e "\n${brkm}\n${walletName}\n${brkm}\n";
-	echo -e "${currentTime} \t ${walletBalance}" >> ${sourceDir}/walletBalance-${walletPrefix};
+	echo -e "${currentTime} \t ${walletBalance}" >> ${logDir}/walletBalance-${walletPrefix};
 	head -n 1 ${logDir}/walletBalance-${walletPrefix};
 	tail ${logDir}/walletBalance-${walletPrefix};
 done < ${configDir}/walletAddress.cfg
