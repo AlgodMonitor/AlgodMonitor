@@ -37,18 +37,18 @@ Generates reports showing the following data:
 -------------------------------------------------------------------------
 Installation
 -------------------------------------------------------------------------
-`git clone https://github.com/consiglieri-cfi/algodMonitor
+`git clone https://github.com/consiglieri-cfi/algodMonitor`
 
-chmod +x ./aglodMonitor/config.sh
+`chmod +x ./aglodMonitor/config.sh`
 
-./algodMonitor/config.sh`
+`./algodMonitor/config.sh`
 
  
 -------------------------------------------------------------------------
 Development Fund
 -------------------------------------------------------------------------
 
-Support development of 'algodMon' and earn NFT rewards!
+Support development of 'algodMon' and earn NFT rewards! :money_with_wings:
 
 Address: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 
