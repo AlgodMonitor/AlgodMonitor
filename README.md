@@ -43,17 +43,6 @@ Installation
 
 `./algodMonitor/config.sh`
 
- 
--------------------------------------------------------------------------
-Development Fund
--------------------------------------------------------------------------
-
-Please support 'algodMonitor' development fund!
-
-Put **'Quantum'** in the note field for a limited edition NFT!
-
-Address: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
-
 
 -------------------------------------------------------------------------
 Roadmap
@@ -72,6 +61,17 @@ Significant enhancements are also in progress for the Network Monitor.
  - Performance telemetry transmit
  - Participation Key Setup
  - Archive Node Features
+
+
+-------------------------------------------------------------------------
+Development Fund
+-------------------------------------------------------------------------
+
+Please support 'algodMonitor' development fund!
+
+Put **'Quantum'** in the note field for a limited edition NFT!
+
+Address: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 
 
 -------------------------------------------------------------------------
