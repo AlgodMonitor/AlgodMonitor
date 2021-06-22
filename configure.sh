@@ -72,4 +72,5 @@ fi;
 
 # Complete
 echo -e "\n\n\n${brkm}\nComplete\n${brkm}\n"
-echo -e "Configuration has now completed successfully.\n\nRun the reports to get node information!\n\nNext release will have 'crontab' suggestions and global reports.\n\n";
+echo -e "Configuration has now completed successfully.\n\nRun the reports to get node information!\n\n"
+echo -e "Next release will have 'crontab' suggestions and global reports.\n\n";
