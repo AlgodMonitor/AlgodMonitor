@@ -50,7 +50,7 @@ Development Fund
 
 Please support 'algodMonitor' development fund!
 
-For a limited edition NFT put 'QUANTUM' in the note field!
+For a limited edition NFT put **'Quantum'** in the note field!
 
 Address: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 
