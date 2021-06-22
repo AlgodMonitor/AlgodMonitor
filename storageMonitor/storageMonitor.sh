@@ -8,14 +8,12 @@
 #
 
 # Initialization
-sourceDir=$(dirname "$0");
-logDir=${sourceDir}/../logs;
-configDir=${sourceDir}/../config;
-currentDate=$(date +%Y-%m-%d);
-currentSecond=$(date +%H:%M:%S);
-currentEpoch=$(date +%s);
-currentTime=$(echo -e "${currentDate}  ${currentSecond}");
-brk=$(printf '=%.0s' {1..120}); brks=$(printf '=%.0s' {1..30});
+globalSettings=$(dirname "$0")/../config/globalSettings.cfg;
+if [ ! -f ${globalSettings} ]; then
+echo -e "\n\nERROR: Missing configuration file!\n\nExpected Path: ${globalSettings}\n\n";
+kill ${BASHPID}; else source ${globalSettings}; fi;
+
+# Banner
 echo -e "\n\n${brk}\nalgodMon - storageMonitor - Storage Utilization Monitor - Initialization\n${brk}";
 
 # Configuration - Set Data Director
