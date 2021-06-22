@@ -16,7 +16,7 @@ export ALGORAND_DATA=${dataDir};
 
 # Banner
 echo -e "\n\n${brk}\nalgodMon - networkMonitor - Network Monitor Report\n${brk}";
-echo -e "\n${brk}\nNetwork Peers\n${brk}\n";
+echo -e "\n${brkm}\nNetwork Peers\n${brkm}\n";
 
 # Peer Connections - 'lsof -i'
 timeout 10 lsof -i :4160 | awk '{print $(NF-1)}' | awk -F"->" '{print $2}' | awk -F":" '{print $1}' | awk 'NF' > ${logDir}/networkPeers/lsof-4160-${currentEpoch}
