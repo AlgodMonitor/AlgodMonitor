@@ -2,8 +2,6 @@
 #
 #  algodMon - v1.2 - syncMonitor - Node Synchronization Monitor
 #
-#  Donations: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
-#
 #  Copyright 2021 - Consiglieri-cfi
 #
 
