@@ -69,3 +69,7 @@ echo -e "Configuration has been cleared.\n\nPlease restart setup to re-enter the
 kill ${BASHPID};
 fi;
 fi;
+
+# Complete
+echo -e "\n\n\n${brkm}\nComplete\n${brkm}\n"
+echo -e "Configuration has now completed successfully.\n\nRun the reports to get node information!\n\nNext release will have 'crontab' suggestions and global reports.\n\n";
