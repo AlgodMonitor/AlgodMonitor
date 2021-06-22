@@ -9,12 +9,14 @@
 
 # Initialization
 globalSettings=$(dirname "$0")/../config/globalSettings.cfg;
-source ${globalSettings};
+if [ ! -f ${globalSettings} ]; then
+echo -e "\n\nERROR: Missing configuration file!\n\nExpected Path: ${globalSettings}\n\n";
+kill ${BASHPID}; else source ${globalSettings}; fi;
 
 # Export ALGORAND_DATA
 export ALGORAND_DATA=${dataDir};
 
-# Network monitor report
+# Banner
 echo -e "\n\n${brk}\nalgodMon - networkMonitor - Network Monitor Report\n${brk}";
 echo -e "\n${bk}\nNetwork Peers\n${bk}\n";
 
