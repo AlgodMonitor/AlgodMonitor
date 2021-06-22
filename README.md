@@ -37,11 +37,9 @@ Generates reports showing the following data:
 -------------------------------------------------------------------------
 Installation
 -------------------------------------------------------------------------
-...
-git clone https://github.com/consiglieri-cfi/algodMonitor
-chmod +x ./aglodMonitor/config.sh
-./algodMonitor/config.sh
-...
+`git clone https://github.com/consiglieri-cfi/algodMonitor`
+`chmod +x ./aglodMonitor/config.sh`
+`./algodMonitor/config.sh`
 
  
 -------------------------------------------------------------------------
