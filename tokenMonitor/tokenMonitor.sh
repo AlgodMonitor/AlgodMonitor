@@ -24,7 +24,7 @@ echo -e "You have not added monitoring for any public wallet addresses.\n\nDo yo
 read configMonitor;
 if [[ ${configMonitor} == "y" ]]; then
 echo -e "\n\nEnter the wallet address to monitor...\n\n"; read monitorWallet;
-echo -e "\n\nEnter a name for the account...\n\n"; read monitorName;
+echo -e "\n\nEnter a name for the account (no spaces)...\n\n"; read monitorName;
 echo -e "\n\nYou entered the following address:\n\n\t${monitorWallet}\n\t${monitorName}\n\n\nIs this correct? (y/n)\n\n";
 read validateAddress;
 if [[ ${validateAddress} == "y" ]]; then
