@@ -11,6 +11,8 @@
 export ALGORAND_DATA=~/node/data;
 nodeDir=~/node;
 sourceDir=$(dirname "$0");
+logDir=${sourceDir}/../logs;
+configDir=${sourceDir}/../config;
 currentDate=$(date +%Y-%m-%d);
 currentSecond=$(date +%H:%M:%S);
 currentEpoch=$(date +%s);
@@ -19,7 +21,7 @@ brk=$(printf '=%.0s' {1..90}); brks=$(printf '=%.0s' {1..30});
 echo -e "\n\n${brk}\nalgodMon - partkeyMonitor - Participation Key Expiration - Initialization\n${brk}";
 
 # Execution Tracker
-echo -e "\n\nLast Executed: $(date -r ${sourceDir}/monitorKeyExpiration.log +"%Y-%m-%d %H:%M:%S" 2>/dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
+echo -e "\n\nLast Executed: $(date -r ${logDir}/monitorKeyExpiration.log +"%Y-%m-%d %H:%M:%S" 2>/dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
 
 # Check round
 currentRound=$(~/node/goal node status | grep "Last committed" | awk '{print $NF}');
@@ -32,17 +34,17 @@ deltaEpoch=$(expr ${currentEpoch} + ${deltaSeconds});
 deltaDays=$(expr ${deltaSeconds} / 86400);
 
 # Write statistics
-monitorKeyExpiration=${deltaDays}
-echo -e "monitorKeyExpiration=${monitorKeyExpiration}" > ${sourceDir}/monitorAlertExpire.log
+monitorKeyExpiration=${deltaDays};
+echo -e "monitorKeyExpiration=${monitorKeyExpiration}" > ${logDir}/monitorAlertExpire.log;
 
 # Update Report
-echo -e "${currentTime} ${currentRound} ${endRound} ${deltaRound} ${deltaDays} $(date -d @${deltaEpoch} +%Y-%m-%d-%H:%M:%S)" >> ${sourceDir}/monitorExpiration.log;
+echo -e "${currentTime} ${currentRound} ${endRound} ${deltaRound} ${deltaDays} $(date -d @${deltaEpoch} +%Y-%m-%d-%H:%M:%S)" >> ${logDir}/monitorExpiration.log;
 
 # Show Summary
 echo -e "\nParticipation Key is valid for ${monitorKeyExpiration} days.";
 
 # Show Report
 echo -e "\n\n${brk}\nalgodMon - partkeyMonitor - Participation Key Expiration - Report\n${brk}\n";
-echo -e "Date Time Current End Rounds Days Expiration\n$(tail -n 20 ${sourceDir}/monitorExpiration.log)" | column -t
+echo -e "Date Time Current End Rounds Days Expiration\n$(tail -n 20 ${logDir}/monitorExpiration.log)" | column -t
 
 #EOF
