@@ -86,6 +86,14 @@ syncMonitor
 
 
 -------------------------------------------------------------------------
+networkMonitor
+-------------------------------------------------------------------------
+- Monitor connections on port '4160'
+- Report hostnames of peers
+- Count connections over time (7 days)
+
+
+-------------------------------------------------------------------------
 partkeyMonitor
 -------------------------------------------------------------------------
 - Report participation key expiration date 
@@ -115,3 +123,11 @@ tokenMonitor
 - Monitor Supply
 - Monitor Online Stake
 - Monitor Wallet Balance
+
+
+-------------------------------------------------------------------------
+storageMonitor
+-------------------------------------------------------------------------
+- Monitor utilization of ./node
+- Monitor utilization of database files
+- Monitor utilization of log files
