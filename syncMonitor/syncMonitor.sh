@@ -8,10 +8,10 @@
 #
 
 # Initialization
-globalSettings=$(dirname "$0")/../config/globalSettings.cfg;
-if [ ! -f ${globalSettings} ]; then
-echo -e "\n\nERROR: Missing configuration file!\n\nExpected Path: ${globalSettings}\n\n";
-kill ${BASHPID}; else source ${globalSettings}; fi;
+globalValues=$(dirname "$0")/../config/globalValues.cfg;
+if [ ! -f ${globalValues} ]; then
+echo -e "\n\nERROR: Missing configuration file!\n\nExpected Path: ${globalValues}\n\n";
+kill ${BASHPID}; else source ${globalValues}; fi;
 
 # Export ALGORAND_DATA
 export ALGORAND_DATA=${dataDir};
