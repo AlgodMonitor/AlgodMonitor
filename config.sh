@@ -72,5 +72,5 @@ fi;
 
 # Complete
 echo -e "\n\n\n${brkm}\nComplete\n${brkm}\n"
-echo -e "Configuration has now completed successfully.\n\nRun the reports to get node information!\n\n"
-echo -e "Next release will have 'crontab' suggestions and global reports.\n\n";
+echo -e "Configuration has now completed successfully.\n\nExecute 'batchMonitor' to generate the first set of reports.\n\n"
+echo -e "Run 'crontab -e' to edit the scheduler and add the following entry for hourly execution:\n\n0 */1 * * * ${HOME}/algodMonitor/batchMonitor.sh\n\n";
