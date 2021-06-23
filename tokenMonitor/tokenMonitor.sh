@@ -57,5 +57,5 @@ while read walletName walletAddress; do
 	echo -e "${currentTime} \t ${walletBalance}" >> ${logDir}/walletBalance-${walletPrefix};
 	head -n 1 ${logDir}/walletBalance-${walletPrefix};
 	tail ${logDir}/walletBalance-${walletPrefix};
-done < ${configDir}/walletAddress.cfg
+done < ${configDir}/monitorWallets.cfg
 fi;
