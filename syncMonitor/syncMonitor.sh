@@ -37,7 +37,7 @@ diskMonitor=$(du ${ALGORAND_DATA} --summarize | awk '{print $1}');
 syncMonitor=$(grep "Catchpoint accounts processed:\|Catchpoint downloaded blocks:\|Catchpoint accounts verified:\|Round for next consensus protocol:" ${sourceDir}/lastStatus | tail -n 1 | awk '{print $NF}');
 lastBlock=$(grep "Last committed block:" ${sourceDir}/lastStatus | awk '{print $NF}');
 syncTime=$(grep "Sync Time:" ${sourceDir}/lastStatus | awk '{print $NF}')
-echo -e "${currentTime} ${diskMonitor} ${lastBlock} ${syncMonitor} ${syncTime}" >> ${logDir}/monitorSync.log;
+echo -e "${currentTime} \t ${diskMonitor} \t ${lastBlock} \t ${syncMonitor} \t ${syncTime}" >> ${logDir}/monitorSync.log;
 
 # Synchronization - Report
 echo -e "\n${brk}\nNode Synchronization Report\n${brk}\n";
