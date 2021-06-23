@@ -25,7 +25,7 @@ read -n 1 -s -r -p "Press any key to continue";
 # Existing Config
 checkConf=$(grep "dataDir\|nodeDir" ${configFile} | wc -l);
 if [ ${checkConf} -gt 0 ]; then
-echo -e "\n\n\n\n\n${brkm}\nExisting Configuration\n${brkm}\n"
+echo -e "\n\n\n\n\n${brkm}\nExisting Configuration Detected\n${brkm}\n"
 echo -e "Existing configuration settings has been found.\n\nPlease review and confirm settings are correct.\n"
 echo -e "\n\tPath: ${configFile}\n";
 echo -e "\n${brks}\nValidation\n${brks}\n"; grep "# Data\|dataDir\|nodeDir" ${configFile};
