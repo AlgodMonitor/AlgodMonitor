@@ -31,8 +31,10 @@ sizeNodeLog=$(du -xL ${networkDir}/../node.log | awk '{print $1}');
 sizeErrLogs=$(du ${networkDir}/../algod-err* | awk '{sum+=$1}END{print sum}');
 
 # Count - Write
-echo -e "${currentTime} ${diskUtilization} ${sizeBlock} ${sizeBlockSHM} ${sizeBlockWAL} ${sizeTracker} ${sizeTrackerSHM} ${sizeTrackerWAL} ${sizeNodeLog} ${sizeErrLogs}" >> ${storageLog};
+echo -e "${currentTime} \t ${diskUtilization} \t ${sizeBlock} \t ${sizeBlockSHM} \t ${sizeBlockWAL} \t ${sizeTracker} \t ${sizeTrackerSHM} \t ${sizeTrackerWAL} \t ${sizeNodeLog} \t ${sizeErrLogs}" >> ${storageLog};
 
 # Count - Report
 echo -e "\n\n${brk}\nalgodMon - storageMonitor - Storage Utilization Monitor - Report\n${brk}\n";
 echo -e "Date Time Utilized block.db b-shm b-wal tracker.db t-shm t-wal node.log algod-err\n$(head -n 1 ${storageLog})\n$(tail -n 20 ${storageLog})" | column -t;
+
+# EOF
