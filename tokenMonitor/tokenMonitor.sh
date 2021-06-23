@@ -48,7 +48,7 @@ head -n1 ${logDir}/monitorOnlineStake.log;
 tail ${logDir}/monitorOnlineStake.log;
 
 # Account Monitor
-if [ -f ${configDir}/walletAddress.cfg ]; then
+if [ -f ${configDir}/monitorWallets.cfg ]; then
 echo -e "\n\n\n${brk}\nalgodMon - tokenMonitor - Account Monitor - ${currentDate}\n${brk}";
 while read walletName walletAddress; do
 	walletPrefix=${walletName}-$(echo ${walletAddress} | cut -c1-7);
