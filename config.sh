@@ -25,11 +25,11 @@ read -n 1 -s -r -p "Press any key to continue";
 # Existing Config
 checkConf=$(grep "dataDir\|nodeDir" ${configFile} | wc -l);
 if [ ${checkConf} -gt 0 ]; then
-echo -e "\n\n\n\n${brkm}\nExisting Configuration\n${brkm}\n"
+echo -e "\n\n\n\n\n${brkm}\nExisting Configuration\n${brkm}\n"
 echo -e "Existing configuration settings has been found.\n\nPlease review and confirm settings are correct.\n"
 echo -e "\n\tPath: ${configFile}\n";
 echo -e "\n${brks}\nValidation\n${brks}\n"; grep "# Data\|dataDir\|nodeDir" ${configFile};
-echo -e "\n\n\nAre the value shown correct? (y/n)\n\n"; read checkConf;
+echo -e "\n\nAre the value shown correct? (y/n)\n\n"; read checkConf;
 if [ ${checkConf} = "n" ]; then
 echo -e "\n\n${brkm}\nClear Configuration\n${brkm}\n";
 sed -i '/# Data\|dataDir=.*\|nodeDir=.*/d' ${configFile};
@@ -63,7 +63,7 @@ fi;
 echo -e "\n\n\n${brkm}\nConfiguration Review\n${brkm}\n"
 echo -e "Please review the current configuration file.\n\n\nPath: ${configFile}\n";
 echo -e "\n${brks}\nValidate Settings\n${brks}\n"; grep "# Data\|dataDir\|nodeDir" ${configFile};
-echo -e "\n\n\nAre the value shown correct? (y/n)\n\n"; read checkConf;
+echo -e "\n\nAre the value shown correct? (y/n)\n\n"; read checkConf;
 if [ ! ${checkConf} = "y" ]; then
 echo -e "\n\n${brkm}\nClear Configuration\n${brkm}\n";
 sed -i '/# Data\|dataDir=.*\|nodeDir=.*/d' ${configFile};
@@ -78,3 +78,5 @@ echo -e "\n${brks}\nManual Execution\n${brks}\n";
 echo -e "Configuration has completed successfully.\n\nExecute 'batchMonitor' to validate functionality.\n\n\t${HOME}/algodMonitor/batchMonitor.sh\n";
 echo -e "\n${brks}\nScheduled Execution\n${brks}\n";
 echo -e "Run 'crontab -e' to edit the scheduler and add the following entry for hourly execution:\n\n0 */1 * * * ${HOME}/algodMonitor/batchMonitor.sh\n\n";
+
+# EOF
