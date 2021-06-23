@@ -18,7 +18,7 @@ export ALGORAND_DATA=~/node/data;
 echo -e "\n\n${brk}\nalgodMon - tokenMonitor - Token Report - ${currentDate}\n${brk}";
 
 # Configuration - Add Wallet
-if [ ! -f ${configDir}/walletAddress.cfg ]; then
+if [ ! -f ${configDir}/monitorWallets.cfg ]; then
 echo -e "\n${brkm}\nConfiguration\n${brkm}\n";
 echo -e "You have not added monitoring for any public wallet addresses.\n\nDo you want to add any wallets to monitoring? (y/n)\n\n";
 read configMonitor;
@@ -28,7 +28,7 @@ echo -e "\n\nEnter a name for the account (no spaces)...\n\n"; read monitorName;
 echo -e "\n\nYou entered the following address:\n\n\t${monitorWallet}\n\t${monitorName}\n\n\nIs this correct? (y/n)\n\n";
 read validateAddress;
 if [[ ${validateAddress} == "y" ]]; then
-echo "${monitorName} ${monitorWallet}" >> ${configDir}/walletAddress.cfg;
+echo "${monitorName} ${monitorWallet}" >> ${configDir}/monitorWallets.cfg;
 fi; fi; fi;
 
 # Supply Monitor
