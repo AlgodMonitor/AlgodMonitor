@@ -75,7 +75,7 @@ fi;
 # Complete
 echo -e "\n\n\n${brkm}\nConfiguration Complete\n${brkm}";
 echo -e "\n${brks}\nManual Execution\n${brks}\n";
-echo -e "Configuration has completed successfully.\n\nExecute 'batchMonitor' to validate functionality.\n\n\t${HOME}/algodMonitor/batchMonitor.sh\n";
+echo -e "Configuration has completed successfully.\n\nExecute 'batchMonitor' to validate functionality:\n\n\t${HOME}/algodMonitor/batchMonitor.sh\n";
 echo -e "\n${brks}\nScheduled Execution\n${brks}\n";
 echo -e "Run 'crontab -e' to edit the scheduler and add the following entry for hourly execution:\n\n0 */1 * * * ${HOME}/algodMonitor/batchMonitor.sh\n\n";
 
