@@ -38,7 +38,7 @@ monitorKeyExpiration=${deltaDays};
 echo -e "monitorKeyExpiration=${monitorKeyExpiration}" > ${logDir}/monitorAlertExpire.log;
 
 # Update Report
-echo -e "${currentTime} ${currentRound} ${lastRound} ${deltaRound} ${deltaDays} $(date -d @${deltaEpoch} +%Y-%m-%d-%H:%M:%S) ${registerState}" >> ${logDir}/monitorExpiration.log;
+echo -e "${currentTime} \t ${currentRound} \t ${lastRound} \t ${deltaRound} \t ${deltaDays} \t $(date -d @${deltaEpoch} +%Y-%m-%d-%H:%M:%S) \t ${registerState}" >> ${logDir}/monitorExpiration.log;
 
 # Show Summary
 echo -e "\nParticipation Key is valid for ${monitorKeyExpiration} days.";
