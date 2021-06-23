@@ -15,15 +15,17 @@ mkdir ${sourceDir}/logs/networkPeers;
 
 # Banner
 brk=$(printf '=%.0s' {1..120}); brkm=$(printf '=%.0s' {1..70}); brks=$(printf '=%.0s' {1..30});
-echo -e "\n\n${brk}\nalgodMon - v1.2 - Algorand Node Monitoring\n${brk}\n";
-echo -e "Thank you for using 'algodMonitor' node monitoring solution!\n\nPlease share requests and feedback via Github:\n\n\thttps://github.com/consiglieri-cfi/algodMonitor/\n"
-echo -e "\n${brks}\nDonate / Register\n${brks}\n"
-echo -e "Support development of 'algodMon' and earn NFT rewards!\n\n\tOBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI\n"
+echo -e "\n\n${brk}\nalgodMon - v1.2 - Algorand Node Monitoring - Configuration\n${brk}\n";
+echo -e "${brkm}\nWelcome!\n${brkm}\n";
+echo -e "Thank you for using 'algodMonitor' node monitoring solution!\n\nPlease share requests and feedback via Github:\n\n\thttps://github.com/consiglieri-cfi/algodMonitor/\n";
+echo -e "\n${brks}\nDonate / Register\n${brks}\n";
+echo -e "Support development of 'algodMon' and earn NFT rewards!\n\n\tOBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI\n\n";
+read -n 1 -s -r -p "Press any key to continue";
 
 # Existing Config
 checkConf=$(grep "dataDir\|nodeDir" ${configFile} | wc -l);
 if [ ${checkConf} -gt 0 ]; then
-echo -e "\n\n${brkm}\nExisting Configuration\n${brkm}\n"
+echo -e "\n\n\n\n${brkm}\nExisting Configuration\n${brkm}\n"
 echo -e "Existing configuration settings has been found.\n\nPlease review and confirm settings are correct.\n"
 echo -e "\n\tPath: ${configFile}\n";
 echo -e "\n${brks}\nValidation\n${brks}\n"; grep "# Data\|dataDir\|nodeDir" ${configFile};
@@ -71,6 +73,8 @@ fi;
 fi;
 
 # Complete
-echo -e "\n\n\n${brkm}\nComplete\n${brkm}\n"
-echo -e "Configuration has now completed successfully.\n\nExecute 'batchMonitor' to generate the first set of reports.\n\n"
+echo -e "\n\n\n${brkm}\nConfiguration Complete\n${brkm}";
+echo -e "\n${brks}\nManual Execution\n${brks}\n";
+echo -e "Configuration has completed successfully.\n\nExecute 'batchMonitor' to validate functionality.\n\n\t${HOME}/algodMonitor/batchMonitor.sh\n";
+echo -e "\n${brks}\nScheduled Execution\n${brks}\n";
 echo -e "Run 'crontab -e' to edit the scheduler and add the following entry for hourly execution:\n\n0 */1 * * * ${HOME}/algodMonitor/batchMonitor.sh\n\n";
