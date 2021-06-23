@@ -26,7 +26,6 @@ keyState=$(${nodeDir}/goal account listpartkeys | tail -n1 | awk '{print $1, $5}
 registerState=$(echo ${keyState} | awk '{print $1}');
 lastRound=$(echo ${keyState} | awk '{print $2}');
 
-
 # Calculate expiration
 deltaRound=$(expr ${lastRound} - ${currentRound});
 deltaSeconds=$(expr ${deltaRound} \* 4);
