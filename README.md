@@ -67,16 +67,16 @@ Significant enhancements are also in progress for the Network Monitor.
 Development Fund
 -------------------------------------------------------------------------
 
-Please support 'algodMonitor' development fund!
+Support the 'algodMonitor' development fund:
 
-Provide feedback on 'alagodMonitor' and receive a limited edition NFT!
-
-Address: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
+OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 
 
 -------------------------------------------------------------------------
 Feedback / Support 
 -------------------------------------------------------------------------
+
+Provide feedback on 'alagodMonitor' and receive a limited edition NFT!
 
 Username: Consiglieri#4724
 
