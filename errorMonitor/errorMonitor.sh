@@ -15,7 +15,7 @@ kill ${BASHPID}; else source ${globalValues}; fi;
 echo -e "\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - Initialization\n${brk}";
 
 # Execution Tracker
-echo -e "\nLast Executed: $(date -r ${logDir}/monitorError.log +"%Y-%m-%d %H:%M:%S" 2>/dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
+echo -e "\nLast Executed: $(date -r ${logDir}/monitorErrors.log +"%Y-%m-%d %H:%M:%S" 2>/dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
 
 # Error Monitor - Processing
 echo -e "\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - Processing\n${brk}\n";
@@ -103,7 +103,7 @@ fi; fi;
 
 # Error Monitor - Historical
 echo -e "\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - History\n${brk}\n";
-errorHistory=${logDir}/monitorError.log
+errorHistory=${logDir}/monitorErrors.log
 
 # Count - Update
 if [ -f ${errorHistory} ]; then
