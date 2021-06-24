@@ -34,16 +34,16 @@ kill $BASHPID;
 fi; fi;
 
 # Vote Count - Previous Total
-if [ ! -f ${sourceDir}/pastVote.src ]; then
-echo -e "\n\n$(date) \t voteMonitor \t ERR \t Vote Count: No previous total found. File '${sourceDir}/pastVote.src' does not yet exist.\n" | tee -a ${logDir}/pastError.log
+if [ ! -f ${logDir}/pastVote.src ]; then
+echo -e "\n\n$(date) \t voteMonitor \t ERR \t Vote Count: No previous total found. File '${logDir}/pastVote.src' does not yet exist.\n" | tee -a ${logDir}/pastError.log
 pastVotes=0; dailyVotes=0; totalVotes=0;
 else
-source ${sourceDir}/pastVote.src;
-echo -e "\n\nLoaded configuration: ${sourceDir}/pastVote.src\n\nPrevious vote count: ${pastVotes}\n"
+source ${logDir}/pastVote.src;
+echo -e "\n\nLoaded configuration: ${logDir}/pastVote.src\n\nPrevious vote count: ${pastVotes}\n"
 fi;
 
 # Execution Tracker
-echo -e "\n\nLast Executed: $(date -r ${sourceDir}/pastVote.src +"%Y-%m-%d %H:%M:%S" 2>/dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
+echo -e "\n\nLast Executed: $(date -r ${logDir}/pastVote.src +"%Y-%m-%d %H:%M:%S" 2>/dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
 
 # Count - Update
 currentVotes=$(grep -a VoteBroadcast ~/node/data/node.log | grep ${participationWallet} | wc -l); 
@@ -51,7 +51,7 @@ totalVotes=$(expr ${pastVotes} + ${currentVotes});
 dailyVotes=$(expr $(grep ${currentDate} ${logDir}/monitorVotes.log | awk '{sum+=$4}END{print sum}') + ${currentVotes})
 
 # Count - Write
-echo -e "pastVotes=${totalVotes}" > ${sourceDir}/pastVote.src
+echo -e "pastVotes=${totalVotes}" > ${logDir}/pastVote.src
 echo -e "${currentTime} \t ${pastVotes} \t ${currentVotes} \t ${dailyVotes} \t ${totalVotes}" >> ${logDir}/monitorVotes.log
 
 # Count - Report
