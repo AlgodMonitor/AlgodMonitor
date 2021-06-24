@@ -26,7 +26,7 @@ ${nodeDir}/goal node status 2> ${sourceDir}/lastStatus.err 1> ${sourceDir}/lastS
 errorCheck=$(echo $?)
 if [[ ${errorCheck} -gt 0 ]]; then 
         echo -e "\nError:  Execution failed\nExit status:  ${errorCheck}\n";
-        echo -e "$(date) \t syncMonitor \t ERR \t Non-zero exit status: ${errorCheck} \t ./node/goal node status" | tee -a ${logDir}/pastError.log; fi
+        echo -e "$(date) \t syncMonitor \t ERR \t Non-zero exit status: ${errorCheck} \t ./node/goal node status" | tee -a ${logDir}/pastError.log;
         echo -e "\n\n${brks}\nNext Step\n${brks}\nPlease retry manual execution of the command:\n\t${nodeDir}/goal node status\n\nCheck log files:"
         echo -e "\t${sourceDir}/lastStatus\n\t${dataDir}/lastStatus.err\n\t${ALGORAND_DATA}/node.log\n\n";
         kill -9 $BASHPID
