@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#  algodMon - v1.2 - viewLogs - Local Report Viewer
+#  algodMon - v1.2 - viewLogs - Log Report Viewer
 #
 #  Copyright 2021 - Consiglieri-cfi
 #
@@ -33,7 +33,7 @@ viewStorage=1;
 elif [ "${componentName}" = "sync" ]; then
 viewSync=1;
 else
-echo -e "\n\n${brk}\nalgodMon - viewLogs - Report Viewer\n${brk}\n";
+echo -e "\n\n${brk}\nalgodMon - viewLogs - Log Report Viewer\n${brk}\n";
 echo -e "\nPlease specify a component when running './viewLogs' command.\n"
 echo -e "\nExample:\n\t ./viewLogs.sh all \n\t ./viewLogs.sh errors \n\t ./viewLogs.sh partkey \n"
 echo -e "\nOptions:\n\t all \n\t errors \n\t partkey \n\t tokens \n\t votes \n\t storage \n\t sync\n\n";
