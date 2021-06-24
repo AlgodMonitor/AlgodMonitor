@@ -130,9 +130,9 @@ echo -e "\nExit Status: ${truncateStatus}\n"
 echo -e "\n\tOld Size: ${sizeBefore}\n\tNew Size: ${sizeAfter}\n\n"
 
 # Count - Write
-echo -e "${currentTime} \t ${errorCount} \t ${dailyError} \t ${warnCount} \t ${dailyWarn} \t ${truncateStatus} \t ${sizeBefore} \t ${sizeAfter}" >> ${errorHistory};
+echo -e "${currentTime} \t ${errorCount} \t ${dailyError} \t ${warnCount} \t ${dailyWarn} \t ${truncateStatus} \t ${sizeAfter} \t ${sizeBefore}" >> ${errorHistory};
 
 # Count - Display
-echo -e "Date Time Error Err_Total Warning Warn_Total Truncate SizeOld SizeNew\n$(tail -n 20 ${errorHistory})" | column -t;
+echo -e "Date Time Error Err_Total Warning Warn_Total Truncate SizeNew SizeOld\n$(tail -n 20 ${errorHistory})" | column -t;
 
 # EOF
