@@ -18,7 +18,7 @@ export ALGORAND_DATA=${dataDir};
 echo -e "\n\n${brk}\nalgodMon - syncMonitor - Node Synchronization Monitor\n${brk}";
 
 # Goal - Check Status
-echo -e "\n\n${brk}\nNode Synchronization Check\n${brk}";
+echo -e "\n\n${brkm}\nNode Synchronization Check\n${brkm}";
 echo -e "\nProcessing:  ${nodeDir}/goal node status\n"
 ${nodeDir}/goal node status 2> ${sourceDir}/lastStatus.err 1> ${sourceDir}/lastStatus;
 
