@@ -14,7 +14,7 @@ brkm=$(printf '=%.0s' {1..70});
 brks=$(printf '=%.0s' {1..30});
 
 # Component Variables
-for viewComponent in viewAll viewErrors viewPartKey viewTokens viewVotes viewStorage viewSync; do export ${viewComponent}=0; done
+for viewComponent in viewAll viewErrors viewNetwork viewPartKey viewTokens viewVotes viewStorage viewSync; do export ${viewComponent}=0; done
 componentName=$1
 
 # Component Selector
@@ -22,6 +22,8 @@ if [ "${componentName}" = "all" ]; then
 viewAll=1;
 elif [ "${componentName}" = "errors" ]; then
 viewErrors=1;
+elif [ "${componentName}" = "network" ]; then
+viewNetwork=1;
 elif [ "${componentName}" = "partkey" ]; then
 viewPartKey=1;
 elif [ "${componentName}" = "tokens" ]; then
@@ -34,8 +36,8 @@ elif [ "${componentName}" = "sync" ]; then
 viewSync=1;
 else
 echo -e "\n\n${brk}\nalgodMon - viewLogs - Log Report Viewer\n${brk}\n";
-echo -e "\nPlease specify a component when running './viewLogs' command.\n"
-echo -e "\nExample:\n\t ./viewLogs.sh all \n\t ./viewLogs.sh errors \n\t ./viewLogs.sh partkey \n"
+echo -e "\nDisplay 'algodMonitor' reports and file information on screen.\n\nPlease specify a component when running the './viewLogs' command.\n";
+echo -e "\nExample:\n\t ./viewLogs.sh all \n\t ./viewLogs.sh errors \n\t ./viewLogs.sh partkey \n";
 echo -e "\nOptions:\n\t all \n\t errors \n\t partkey \n\t tokens \n\t votes \n\t storage \n\t sync\n\n";
 echo -e "\nEnter a component name...\n\n"; read componentName;
 echo -e "\n\n\nDisplaying ${componentName} report...\n";
@@ -45,6 +47,7 @@ fi;
 # View All
 if [ ${viewAll} == "1" ]; then
 viewErrors=1;
+viewNetwork=1;
 viewPartKey=1;
 viewTokens=1;
 viewVotes=1;
@@ -57,6 +60,12 @@ fi;
 if [ ${viewErrors} == "1" ]; then
 echo -e "\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - Report\n${brk}\n";
 echo -e "Date Time Error Err_Total Warning Warn_Total Truncate SizeNew SizeOld\n$(timeout 10 tail -n 20 ${logDir}/monitorErrors.log)" | column -t;
+fi;
+
+# View Network
+if [ ${viewNetwork} == "1" ]; then
+echo -e "\n\n${brk}\nalgodMon - networkMonitor - Network Monitor - Report\n${brk}\n";
+tail -n 30 $(ls -1tr ${logDir}/networkPeers/monitorPeers-* | tail -n1);
 fi;
 
 # View Part Key
