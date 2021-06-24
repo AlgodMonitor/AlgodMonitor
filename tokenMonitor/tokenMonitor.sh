@@ -15,7 +15,7 @@ kill ${BASHPID}; else source ${globalValues}; fi;
 export ALGORAND_DATA=~/node/data;
 
 # Banner
-echo -e "\n\n${brk}\nalgodMon - tokenMonitor - Token Report - ${currentDate}\n${brk}";
+echo -e "\n\n${brk}\nalgodMon - tokenMonitor - Account Balance Monitor - Report\n${brk}";
 
 # Configuration - Add Wallet
 if [ ! -f ${configDir}/monitorWallets.cfg ]; then
