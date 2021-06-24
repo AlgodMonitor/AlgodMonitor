@@ -114,7 +114,7 @@ else
 source ${sourceDir}/lastCountError.src 2>/dev/null;
 fi;
 if [ ${dailyWarn} -gt 0 ]; then
-dailyWarn=$(expr $(grep ${currentDate} ${errorHistory} | awk '{sum+=$4}END{print sum}') + ${warnCount});
+dailyWarn=$(expr $(grep ${currentDate} ${errorHistory} | awk '{sum+=$5}END{print sum}') + ${warnCount});
 echo -e "dailyWarn=${dailyWarn}" > ${sourceDir}/lastCountWarn.src
 else
 source ${sourceDir}/lastCountWarn.src 2>/dev/null;
@@ -130,9 +130,9 @@ echo -e "\nExit Status: ${truncateStatus}\n"
 echo -e "\n\tOld Size: ${sizeBefore}\n\tNew Size: ${sizeAfter}\n\n"
 
 # Count - Write
-echo -e "${currentTime} \t ${errorCount} \t ${warnCount} \t ${dailyError} \t ${dailyWarn} \t ${truncateStatus} \t ${sizeBefore} \t ${sizeAfter}" >> ${errorHistory};
+echo -e "${currentTime} \t ${errorCount} \t ${dailyError} \t ${warnCount} \t ${dailyWarn} \t ${truncateStatus} \t ${sizeBefore} \t ${sizeAfter}" >> ${errorHistory};
 
 # Count - Display
-echo -e "Date Time Error Warning Err_Total Warn_Total Truncate SizeOld SizeNew\n$(tail -n 20 ${errorHistory})" | column -t;
+echo -e "Date Time Error Err_Total Warning Warn_Total Truncate SizeOld SizeNew\n$(tail -n 20 ${errorHistory})" | column -t;
 
 # EOF
