@@ -7,11 +7,11 @@
 
 # Initialization
 sourceDir=$(dirname "$0");
-configFile=${sourceDir}/config/globalValues.cfg;
-chmod +x $(find ${sourceDir} -name "*.sh");
-mkdir ${sourceDir}/logs;
-mkdir ${sourceDir}/logs/nodeMessages;
-mkdir ${sourceDir}/logs/networkPeers;
+configFile=${sourceDir}/../config/globalValues.cfg;
+chmod +x $(find ${sourceDir}/../ -name "*.sh");
+mkdir ${sourceDir}/../logs;
+mkdir ${sourceDir}/../logs/nodeMessages;
+mkdir ${sourceDir}/../logs/networkPeers;
 
 # Banner
 brk=$(printf '=%.0s' {1..120}); brkm=$(printf '=%.0s' {1..70}); brks=$(printf '=%.0s' {1..30});
@@ -20,7 +20,7 @@ echo -e "${brkm}\nWelcome!\n${brkm}\n";
 echo -e "Thank you for using 'algodMonitor' node monitoring solution!\n\nPlease share requests and feedback via Github:\n\n\thttps://github.com/consiglieri-cfi/algodMonitor/\n";
 echo -e "\n${brks}\nDonate / Register\n${brks}\n";
 echo -e "Support development of 'algodMon' and earn NFT rewards!\n\n\tOBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI\n\n";
-read -n 1 -s -r -p "Press any key to continue";
+read -n 1 -s -r -p "Press any key to begin setup...";
 
 # Existing Config
 checkConf=$(grep "dataDir\|nodeDir" ${configFile} | wc -l);
