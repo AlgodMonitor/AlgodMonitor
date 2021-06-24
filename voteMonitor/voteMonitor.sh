@@ -35,7 +35,7 @@ fi; fi;
 
 # Vote Count - Previous Total
 if [ ! -f ${sourceDir}/pastVote.src ]; then
-echo -e "\n\nVote Count: No previous total found. File '${sourceDir}/pastVote.src' does not yet exist.\n"
+echo -e "\n\n$(date) \t voteMonitor \t ERR \t Vote Count: No previous total found. File '${sourceDir}/pastVote.src' does not yet exist.\n" | tee -a ${logDir}/pastError.log
 pastVotes=0; dailyVotes=0; totalVotes=0;
 else
 source ${sourceDir}/pastVote.src;
