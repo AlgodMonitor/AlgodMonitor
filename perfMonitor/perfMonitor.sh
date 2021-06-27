@@ -70,18 +70,21 @@ fi;
 
 # Report - Full
 if [ "${viewFull}" = "1" ]; then
+echo -e "\n\n${brk}\nalgodMon - perfMonitor - Full Daily Report\n${brk}";
 echo -e "\n${brks}\nDisk IO - Performance\n${brks}";
-sar -dpz | egrep "^$|64_|DEV|${deviceName}"
+echo -e "00:00:00          DEV       tps     rkB/s     wkB/s   areq-sz    aqu-sz     await     svctm     %util";
+sar -dpz | egrep "${deviceName}"
 echo -e "\n${brks}\nDisk IO - Blocks\n${brks}";
 sar -b
 echo -e "\n${brks}\nNetwork\n${brks}";
-sar -n DEV -z | egrep "^$|64_|IFACE|${ifaceName}"
+echo -e "00:00:00        IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil";
+sar -n DEV -z | egrep "${ifaceName}"
 echo -e "\n${brks}\nMemory\n${brks}";
 sar -r
 echo -e "\n${brks}\nSwap - Utilization\n${brks}";
 sar -S
 echo -e "\n${brks}\nSwap - Statistics\n${brks}";
 sar -S
-echo -e "\n${brkm}\nCPU\n${brkm}";
+echo -e "\n${brks}\nCPU\n${brks}";
 sar -u
 fi;
