@@ -49,7 +49,7 @@ if [ "${viewEnable}" = "1" ]; then
 echo -e "\n\n${brk}\nalgodMon - perfConfig - Statistics Collection - Enable\n${brk}";
 echo -e "\n${brkm}\nConfiguration: 'sysstat' service\n${brkm}\n";
 grep "^ENABLED=" /etc/default/sysstat;
-echo -e "\n${brkm}\nConfirmation\n${brkm}\n";
+echo -e "\n\n${brkm}\nConfirmation\n${brkm}\n";
 echo -e "Do you want to enable statistics collection? (y/n)\n\n"; read validateChange;
 if [ "${validateChange}" = "y" ]; then
 echo -e "\n${brkm}\nConfiguration: 'sysstat' service\n${brkm}\n";
@@ -67,7 +67,7 @@ if [ "${viewDisable}" = "1" ]; then
 echo -e "\n\n${brk}\nalgodMon - perfConfig - Statistics Collection - Disable\n${brk}";
 echo -e "\n${brkm}\nConfiguration: 'sysstat' service\n${brkm}\n";
 grep "^ENABLED=" /etc/default/sysstat;
-echo -e "\n${brkm}\nConfirmation\n${brkm}\n";
+echo -e "\n\n${brkm}\nConfirmation\n${brkm}\n";
 echo -e "Do you want to disable statistics collection? (y/n)\n\n"; read validateChange;
 if [ "${validateChange}" = "y" ]; then
 echo -e "\n${brkm}\nConfiguration: 'sysstat' service\n${brkm}\n";
