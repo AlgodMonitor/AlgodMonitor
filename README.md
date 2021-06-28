@@ -123,6 +123,15 @@ errorMonitor
 
 
 -------------------------------------------------------------------------
+perfMonitor
+-------------------------------------------------------------------------
+- Enable / disable performnace monitoring
+- Check daily averages
+- Check historical data
+- Generate telemetry reports
+
+
+-------------------------------------------------------------------------
 tokenMonitor
 -------------------------------------------------------------------------
 - Monitor Supply
