@@ -122,10 +122,10 @@ fi; fi;
 
 # Truncate Node Log
 echo -e "\nTruncating node log...\n"
-sizeBefore=$(du -x ${dataDir}/node.log | awk '{print $1}')
+sizeBefore=$(du -xL ${dataDir}/node.log | awk '{print $1}')
 truncate -s 0 ${dataDir}/node.log
 truncateStatus=${?}
-sizeAfter=$(du -x ${dataDir}/node.log | awk '{print $1}')
+sizeAfter=$(du -xL ${dataDir}/node.log | awk '{print $1}')
 echo -e "\nExit Status: ${truncateStatus}\n"
 echo -e "\n\tOld Size: ${sizeBefore}\n\tNew Size: ${sizeAfter}\n\n"
 
