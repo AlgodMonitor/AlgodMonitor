@@ -6,10 +6,18 @@
 #
 
 # Initialization
-globalValues=$(dirname "$0")/../config/globalValues.cfg;
+sourceDir=$(dirname "$0");
+globalValues=${sourceDir}/../config/globalValues.cfg
 if [ ! -f ${globalValues} ]; then
 echo -e "\n\nERROR: Missing configuration file!\n\nExpected Path: ${globalValues}\n\n";
 kill ${BASHPID}; else source ${globalValues}; fi;
+
+perfDevices=${sourceDir}/../config/perfDevices.cfg
+if [ ! -f ${perfDevices} ]; then
+echo -e "\n\nERROR: Missing configuration file!\n\nExpected Path: ${perfDevices}\n\n";
+echo -e "\n\nPlease run the configuration utility: ./perfConfig.sh devices\n\n";
+kill ${BASHPID}; else source ${perfDevices}; fi;
+
 
 # Variables
 for classType in reportType reportFormat; do export ${classType}=0; done;
@@ -40,10 +48,6 @@ echo -e "\n\n\nDisplaying ${reportType} report...\n";
 ${sourceDir}/perfMonitor.sh ${reportType};
 fi;
 
-# Device Settings
-deviceName=nvme0n1;
-ifaceName=eth0;
-
 # Redirect - Config
 if [ "${viewConfig}" = "1" ]; then
 echo -e "\nExecuting: ${sourceDir}/perfConfig.sh\n";
@@ -59,10 +63,12 @@ echo -e "\n${brks}\nMemory\n${brks}";
 sar -r | egrep "Average|kbmemfree";
 echo -e "\n${brks}\nSwap\n${brks}";
 sar -S | egrep "Average|kbswpfree";
+
 echo -e "\n${brks}\nNetwork\n${brks}";
-sar -n DEV -z | egrep "IFACE|${ifaceName}" | egrep "Average";
+sar -n DEV -z | egrep "${nicName}" | egrep "Average";
+
 echo -e "\n${brks}\nDisk IO - Performance\n${brks}";
-sar -dpz | egrep "DEV|${deviceName}" | egrep "Average";
+sar -dpz | egrep "DEV|${storageName}" | egrep "Average";
 echo -e "\n${brks}\nDisk IO - Blocks\n${brks}";
 sar -b | egrep "bwrtn|Average";
 fi;
@@ -72,12 +78,12 @@ if [ "${viewFull}" = "1" ]; then
 echo -e "\n\n${brk}\nalgodMon - perfMonitor - Full Daily Report\n${brk}";
 echo -e "\n${brks}\nDisk IO - Performance\n${brks}";
 echo -e "00:00:00          DEV       tps     rkB/s     wkB/s   areq-sz    aqu-sz     await     svctm     %util";
-sar -dpz | egrep "${deviceName}"
+sar -dpz | egrep "${storageName}"
 echo -e "\n${brks}\nDisk IO - Blocks\n${brks}";
 sar -b
 echo -e "\n${brks}\nNetwork\n${brks}";
 echo -e "00:00:00        IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil";
-sar -n DEV -z | egrep "${ifaceName}"
+sar -n DEV -z | egrep "${nicName}"
 echo -e "\n${brks}\nMemory\n${brks}";
 sar -r
 echo -e "\n${brks}\nSwap - Utilization\n${brks}";
@@ -87,3 +93,41 @@ sar -S
 echo -e "\n${brks}\nCPU\n${brks}";
 sar -u
 fi;
+
+# Report - CPU
+if [ "${viewCPU}" = "1" ]; then
+echo -e "\n\n${brk}\nalgodMon - perfMonitor - Full Daily Report - CPU\n${brk}";
+echo -e "\n${brks}\nCPU\n${brks}";
+sar -u
+fi;
+
+# Report - Memory
+if [ "${viewMemory}" = "1" ]; then
+echo -e "\n\n${brk}\nalgodMon - perfMonitor - Full Daily Report - Memory\n${brk}";
+echo -e "\n${brks}\nMemory\n${brks}";
+sar -r
+echo -e "\n${brks}\nSwap - Utilization\n${brks}";
+sar -S
+echo -e "\n${brks}\nSwap - Statistics\n${brks}";
+sar -S
+fi;
+
+
+# Report - Network
+if [ "${viewNetwork}" = "1" ]; then
+echo -e "\n\n${brk}\nalgodMon - perfMonitor - Full Daily Report - Network\n${brk}";
+echo -e "\n${brks}\nNetwork Performance\n${brks}";
+echo -e "00:00:00        IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil";
+sar -n DEV -z | egrep "${nicName}"
+fi;
+
+# Report - Storage
+if [ "${viewStorage}" = "1" ]; then
+echo -e "\n\n${brk}\nalgodMon - perfMonitor - Full Daily Report - Storage\n${brk}";
+echo -e "\n${brks}\nDisk IO - Performance\n${brks}";
+echo -e "00:00:00          DEV       tps     rkB/s     wkB/s   areq-sz    aqu-sz     await     svctm     %util";
+sar -dpz | egrep "${storageName}"
+echo -e "\n${brks}\nDisk IO - Blocks\n${brks}";
+sar -b
+fi;
+
