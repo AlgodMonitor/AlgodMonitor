@@ -29,6 +29,7 @@ Generates reports showing the following data:
  - Network Errors
  - Consensus Participation
  - Participation Key Expiration
+ - Performance (CPU, MEM, Disk IO, Network)
  - Token Balances
  - Token Supply
  - Token Online Stake
