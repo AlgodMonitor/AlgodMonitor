@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#  algodMon v1.2 - PerfMonitor - Host Performance Monitor
+#  algodMon v1.2 - perfMonitor - Host Performance Monitor
 #
 #  Copyright (C) 2021 - Consiglieri-cfi
 #
@@ -10,7 +10,6 @@ globalValues=$(dirname "$0")/../config/globalValues.cfg;
 if [ ! -f ${globalValues} ]; then
 echo -e "\n\nERROR: Missing configuration file!\n\nExpected Path: ${globalValues}\n\n";
 kill ${BASHPID}; else source ${globalValues}; fi;
-
 
 # Variables
 for classType in reportType reportFormat; do export ${classType}=0; done;
