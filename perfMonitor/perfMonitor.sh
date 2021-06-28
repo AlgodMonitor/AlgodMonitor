@@ -66,6 +66,7 @@ sar -S | egrep "Average|kbswpfree";
 echo -e "\n${brks}\nSwap - Statistics\n${brks}";
 sar -W | egrep "Average|pswpin"
 echo -e "\n${brks}\nNetwork\n${brks}";
+echo -e "00:00:00        IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil"
 sar -n DEV -z | egrep "${nicName}" | egrep "Average";
 echo -e "\n${brks}\nDisk IO - Performance\n${brks}";
 sar -dpz | egrep "DEV|${storageName}" | egrep "Average";
