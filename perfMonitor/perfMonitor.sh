@@ -61,12 +61,12 @@ echo -e "\n${brks}\nCPU\n${brks}";
 sar -u | egrep "Average|nice";
 echo -e "\n${brks}\nMemory\n${brks}";
 sar -r | egrep "Average|kbmemfree";
-echo -e "\n${brks}\nSwap\n${brks}";
+echo -e "\n${brks}\nSwap - Used\n${brks}";
 sar -S | egrep "Average|kbswpfree";
-
+echo -e "\n${brks}\nSwap - Statistics\n${brks}";
+sar -W | egrep "Average|pswpin"
 echo -e "\n${brks}\nNetwork\n${brks}";
 sar -n DEV -z | egrep "${nicName}" | egrep "Average";
-
 echo -e "\n${brks}\nDisk IO - Performance\n${brks}";
 sar -dpz | egrep "DEV|${storageName}" | egrep "Average";
 echo -e "\n${brks}\nDisk IO - Blocks\n${brks}";
