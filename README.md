@@ -39,9 +39,9 @@ Installation
 -------------------------------------------------------------------------
 `git clone https://github.com/consiglieri-cfi/algodMonitor`
 
-`chmod +x ./algodMonitor/config.sh`
+`chmod +x ./algodMonitor/config/config.sh`
 
-`./algodMonitor/config.sh`
+`./algodMonitor/config/config.sh`
 
 
 -------------------------------------------------------------------------
