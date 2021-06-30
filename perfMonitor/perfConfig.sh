@@ -61,7 +61,7 @@ echo -e "\n\nPlease specify network and storage devices for performance monitori
 else
 source ${perfDevices};
 echo -e "\n${brkm}\nCurrent Configuration\n${brkm}"
-echo -e "\n${brks}\nNetwork Interface(s)\n${brks}\n";
+echo -e "\n${brks}\nNetwork Interface\n${brks}\n";
 grep nicName ${perfDevices}
 echo -e "\n${brks}\nStorage Device\n${brks}\n";
 grep storageName ${perfDevices}
@@ -83,7 +83,7 @@ if [ "${validateChange}" = "y" ]; then
 echo -e "# Devices\nnicName=\"${nicName}\"\nstorageName=\"${storageName}\"" > ${perfDevices};
 source ${perfDevices};
 echo -e "\n\n${brkm}\nUpdated Configuration\n${brkm}"
-echo -e "\n${brks}\nNetwork Interface(s)\n${brks}\n";
+echo -e "\n${brks}\nNetwork Interface\n${brks}\n";
 grep nicName ${perfDevices}
 echo -e "\n${brks}\nStorage Device\n${brks}\n";
 grep storageName ${perfDevices}
