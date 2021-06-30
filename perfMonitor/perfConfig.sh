@@ -42,7 +42,7 @@ ${sourceDir}/perfMonitor.sh;
 fi;
 
 # Config - Check settings and service state
-if [ "${viewCheck}" = "1" ]; then
+if [ "${viewStatus}" = "1" ]; then
 echo -e "\n\n${brk}\nalgodMon - perfConfig - Check settings and service state\n${brk}";
 echo -e "\n${brkm}\nConfiguration: 'sysstat' service\n${brkm}\n";
 grep "^ENABLED=" /etc/default/sysstat
