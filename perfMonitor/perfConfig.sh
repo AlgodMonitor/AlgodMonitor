@@ -54,8 +54,7 @@ fi;
 if [ "${viewDevices}" = "1" ]; then
 perfDevices=${sourceDir}/../config/perfDevices.cfg;
 echo -e "\n\n${brk}\nalgodMon - perfConfig - Device Selection\n${brk}";
-echo -e "\nThe devices shown below will be used by 'perfMonitor' for reporting."
-echo -e "\nNext release will support selection of multiple devices.\n"
+echo -e "\nThe devices below will be used by 'perfMonitor' for reporting."
 if [ ! -f ${perfDevices} ]; then
 echo -e "\nWARNING: Configuration does not yet exist.\n";
 echo -e "\n\nPlease specify network and storage devices for performance monitoring.\n\n";
@@ -68,7 +67,7 @@ echo -e "\n${brks}\nStorage Device\n${brks}\n";
 grep storageName ${perfDevices}
 fi;
 echo -e "\n\n\n${brkm}\nConfiguration Changes\n${brkm}\n"
-echo -e "Do you want to change the devices used for reports? (y/n)\n\n"; read validateChange;
+echo -e "Do you want to change the device selection? (y/n)\n\n"; read validateChange;
 if [ "${validateChange}" = "y" ]; then
 echo -e "\n\n${brks}\nNetwork Interface\n${brks}";
 echo -e "\nAvailable Interfaces:  $(ls /sys/class/net/ | tr '\n' ' ' | sort)";
