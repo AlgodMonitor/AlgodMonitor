@@ -67,9 +67,9 @@ echo -e "\n${brks}\nSwap - Statistics\n${brks}";
 sar -W | egrep "Average|pswpin"
 echo -e "\n${brks}\nNetwork\n${brks}";
 echo -e "00:00:00        IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil"
-sar -n DEV -z | egrep "${nicName}" | egrep "Average";
+sar -n DEV -z | egrep "${nicName}\s" | egrep "Average";
 echo -e "\n${brks}\nDisk IO - Performance\n${brks}";
-sar -dpz | egrep "DEV|${storageName}" | egrep "Average";
+sar -dpz | egrep "DEV|${storageName}\s" | egrep "Average";
 echo -e "\n${brks}\nDisk IO - Blocks\n${brks}";
 sar -b | egrep "bwrtn|Average";
 fi;
@@ -79,12 +79,12 @@ if [ "${viewFull}" = "1" ]; then
 echo -e "\n\n${brk}\nalgodMon - perfMonitor - Full Daily Report\n${brk}";
 echo -e "\n${brks}\nDisk IO - Performance\n${brks}";
 echo -e "00:00:00          DEV       tps     rkB/s     wkB/s   areq-sz    aqu-sz     await     svctm     %util";
-sar -dpz | egrep "${storageName}"
+sar -dpz | egrep "${storageName}\s"
 echo -e "\n${brks}\nDisk IO - Blocks\n${brks}";
 sar -b
 echo -e "\n${brks}\nNetwork\n${brks}";
 echo -e "00:00:00        IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil";
-sar -n DEV -z | egrep "${nicName}"
+sar -n DEV -z | egrep "${nicName}\s"
 echo -e "\n${brks}\nMemory\n${brks}";
 sar -r
 echo -e "\n${brks}\nSwap - Utilization\n${brks}";
