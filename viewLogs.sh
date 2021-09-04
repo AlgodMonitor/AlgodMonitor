@@ -59,7 +59,7 @@ fi;
 # View Errors
 if [ ${viewErrors} == "1" ]; then
 echo -e "\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - Report\n${brk}\n";
-echo -e "Date Time Error Err_Total Warning Warn_Total Truncate SizeNew SizeOld FS_Type\n$(timeout 10 tail -n 20 ${logDir}/monitorErrors.log)" | column -t;
+echo -e "Date Time Error Warning Err_Total Warn_Total Truncate SizeNew SizeOld FS_Type\n$(timeout 10 tail -n 20 ${logDir}/monitorErrors.log)" | column -t;
 fi;
 
 # View Network
