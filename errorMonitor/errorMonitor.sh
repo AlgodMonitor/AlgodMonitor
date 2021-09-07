@@ -129,6 +129,9 @@ sizeAfter=$(du -xL ${dataDir}/node.log | awk '{print $1}')
 echo -e "\nExit Status: ${truncateStatus}\n"
 echo -e "\n\tOld Size: ${sizeBefore}\n\tNew Size: ${sizeAfter}\n\n"
 
+# Check File System Type
+logFS=$(stat -f -c %T ${dataDir}/node.log);
+
 # Count - Write
 echo -e "${currentTime} \t ${errorCount} \t ${warnCount} \t ${dailyError} \t ${dailyWarn} \t ${truncateStatus} \t ${sizeAfter} \t ${sizeBefore} \t ${logFS}" >> ${errorHistory};
 
