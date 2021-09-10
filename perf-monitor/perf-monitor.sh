@@ -15,7 +15,7 @@ kill ${BASHPID}; else source ${globalValues}; fi;
 perfDevices=${sourceDir}/../config/perfDevices.cfg
 if [ ! -f ${perfDevices} ]; then
 echo -e "\n\nERROR: Missing configuration file!\n\nExpected Path: ${perfDevices}\n\n";
-echo -e "\n\nPlease run the configuration utility: ./perfConfig.sh devices\n\n";
+echo -e "\n\nPlease run the configuration utility: ./perf-config.sh devices\n\n";
 kill ${BASHPID}; else source ${perfDevices}; fi;
 
 
@@ -41,17 +41,17 @@ viewConfig=1;
 else
 echo -e "\n\n${brk}\nalgodMon - perfMonitor - Performance Report Viewer\n${brk}\n";
 echo -e "\nDisplay historical reports showing system resource utilization.\n\nPlease specify an option when running the 'perfMonitor' command.\n";
-echo -e "\nExample:\n\t ./perfMonitor.sh avg \n\t ./perfMonitor.sh full \n\t ./perfMonitor.sh memory \n";
+echo -e "\nExample:\n\t ./perf-monitor.sh avg \n\t ./perf-monitor.sh full \n\t ./perf-monitor.sh memory \n";
 echo -e "\nOptions:\n\t avg \n\t full \n\t cpu \n\t memory \n\t network \n\t storage \n\t config\n\n";
 echo -e "\nEnter a report type...\n\n"; read reportType;
 echo -e "\n\n\nDisplaying ${reportType} report...\n";
-${sourceDir}/perfMonitor.sh ${reportType};
+${sourceDir}/perf-monitor.sh ${reportType};
 fi;
 
 # Redirect - Config
 if [ "${viewConfig}" = "1" ]; then
-echo -e "\nExecuting: ${sourceDir}/perfConfig.sh\n";
-${sourceDir}/perfConfig.sh;
+echo -e "\nExecuting: ${sourceDir}/perf-config.sh\n";
+${sourceDir}/perf-config.sh;
 fi;
 
 # Report - Averages
