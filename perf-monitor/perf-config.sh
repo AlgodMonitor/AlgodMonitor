@@ -29,16 +29,16 @@ viewRedirect=1;
 else
 echo -e "\n\n${brk}\nalgodMon - perfConfig - Performance Configuration Utility\n${brk}\n";
 echo -e "\nView and change settings related to performance monitoring.\n\nPlease specify an option when running the 'perfConfig' command.\n";
-echo -e "\nExample:\n\t ./perfConfig.sh devices \n\t ./perfConfig.sh status \n\t ./perfConfig.sh enable \n";
+echo -e "\nExample:\n\t ./perf-config.sh devices \n\t ./perf-config.sh status \n\t ./perf-config.sh enable \n";
 echo -e "\nOptions:\n\t devices \n\t status \n\t enable \n\t disable \n\t view\n\n";
 echo -e "\nEnter an option...\n\n"; read selectOption;
-${sourceDir}/perfConfig.sh ${selectOption};
+${sourceDir}/perf-config.sh ${selectOption};
 fi;
 
 # Redirect - Monitor
 if [ "${viewRedirect}" = "1" ]; then
-echo -e "\nExecuting: ${sourceDir}/perfMonitor.sh\n"
-${sourceDir}/perfMonitor.sh;
+echo -e "\nExecuting: ${sourceDir}/perf-monitor.sh\n"
+${sourceDir}/perf-monitor.sh;
 fi;
 
 # Config - Check settings and service state
@@ -87,8 +87,8 @@ echo -e "\n${brks}\nNetwork Interface\n${brks}\n";
 grep nicName ${perfDevices}
 echo -e "\n${brks}\nStorage Device\n${brks}\n";
 grep storageName ${perfDevices}
-${sourceDir}/perfMonitor.sh network
-${sourceDir}/perfMonitor.sh storage
+${sourceDir}/perf-monitor.sh network
+${sourceDir}/perf-monitor.sh storage
 else echo -e "\n\nNo changes have been made.\n"; fi;
 else echo -e "\n\nNo changes have been made.\n"; fi;
 fi;
