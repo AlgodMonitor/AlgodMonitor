@@ -6,9 +6,9 @@
 #
 
 sourceDir=$(dirname "$0");
-${sourceDir}/networkMonitor/networkMonitor.sh
-${sourceDir}/partkeyMonitor/partkeyMonitor.sh
-${sourceDir}/storageMonitor/storageMonitor.sh
-${sourceDir}/tokenMonitor/tokenMonitor.sh
-${sourceDir}/syncMonitor/syncMonitor.sh
-${sourceDir}/voteMonitor/voteMonitor.sh
+${sourceDir}/network-monitor/network-monitor.sh
+${sourceDir}/partkey-monitor/partkey-monitor.sh
+${sourceDir}/storage-monitor/storage-monitor.sh
+${sourceDir}/token-monitor/token-monitor.sh
+${sourceDir}/sync-monitor/sync-monitor.sh
+${sourceDir}/vote-monitor/vote-monitor.sh
