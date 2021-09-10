@@ -85,14 +85,14 @@ Link: https://discord.com/invite/nxrYwdxDSf
 
 
 -------------------------------------------------------------------------
-syncMonitor
+Sync Monitor
 -------------------------------------------------------------------------
 - Node Synchronization Check
 - Node Synchronization Report
 
 
 -------------------------------------------------------------------------
-networkMonitor
+Network Monitor
 -------------------------------------------------------------------------
 - Monitor connections on port '4160'
 - Report hostnames of peers
@@ -100,14 +100,14 @@ networkMonitor
 
 
 -------------------------------------------------------------------------
-partkeyMonitor
+Ppartkey Monitor
 -------------------------------------------------------------------------
 - Report participation key expiration date 
 - Generate time series report
 
 
 -------------------------------------------------------------------------
-voteMonitor
+Vote Monitor
 -------------------------------------------------------------------------
 - Count your votes in participation
 - Generate time series report
@@ -115,7 +115,7 @@ voteMonitor
 
 
 -------------------------------------------------------------------------
-errorMonitor
+Error Monitor
 -------------------------------------------------------------------------
 - Check 'node.log' for errors
 - Check 'node.log' for warnings
@@ -124,7 +124,7 @@ errorMonitor
 
 
 -------------------------------------------------------------------------
-perfMonitor
+Perf Monitor
 -------------------------------------------------------------------------
 - Enable / disable performnace monitoring
 - Check daily averages
@@ -133,7 +133,7 @@ perfMonitor
 
 
 -------------------------------------------------------------------------
-tokenMonitor
+Token Monitor
 -------------------------------------------------------------------------
 - Monitor Supply
 - Monitor Online Stake
@@ -141,8 +141,9 @@ tokenMonitor
 
 
 -------------------------------------------------------------------------
-storageMonitor
+Storage Monitor
 -------------------------------------------------------------------------
 - Monitor utilization of ./node
 - Monitor utilization of database files
 - Monitor utilization of log files
+
