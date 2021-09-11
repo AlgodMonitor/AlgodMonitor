@@ -60,6 +60,6 @@ echo -e "Date Time Previous New Today Total\n$(tail -n 20 ${logDir}/monitorVotes
 
 # Call Error Monitor
 echo -e "\n\n${brks}\nLog Cleanup\n${brks}\n\nCalling 'errorMonitor' to report errors and truncate node log...\n\n";
-${sourceDir}/../errorMonitor/error-monitor.sh;
+${sourceDir}/../error-monitor/error-monitor.sh;
 
 # EOF
