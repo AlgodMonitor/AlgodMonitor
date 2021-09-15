@@ -37,11 +37,11 @@ viewSync=1;
 else
 echo -e "\n\n${brk}\nalgodMon - viewLogs - Log Report Viewer\n${brk}\n";
 echo -e "\nDisplay 'algodMonitor' reports and file information on screen.\n\nPlease specify a component when running the './viewLogs' command.\n";
-echo -e "\nExample:\n\t ./viewLogs.sh all \n\t ./viewLogs.sh errors \n\t ./viewLogs.sh partkey \n";
+echo -e "\nExample:\n\t ./view-logs.sh all \n\t ./view-logs.sh errors \n\t ./view-logs.sh partkey \n";
 echo -e "\nOptions:\n\t all \n\t errors \n\t network \n\t partkey \n\t tokens \n\t votes \n\t storage \n\t sync\n\n";
 echo -e "\nEnter a component name...\n\n"; read componentName;
 echo -e "\n\n\nDisplaying ${componentName} report...\n";
-${sourceDir}/viewLogs.sh ${componentName};
+${sourceDir}/view-logs.sh ${componentName};
 fi;
 
 # View All
