@@ -59,7 +59,7 @@ fi;
 # View Errors
 if [ ${viewErrors} == "1" ]; then
 echo -e "\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - Report\n${brk}\n";
-echo -e "Date Time Error Warning Err_Total Warn_Total Truncate SizeNew SizeOld FS_Type\n$(timeout 10 tail -n 20 ${logDir}/monitorErrors.log)" | column -t;
+echo -e "Date Time Error Warning Err_Total Warn_Total Truncate SizeNew SizeOld FS_Type\n$(timeout 10 tail -n 25 ${logDir}/monitorErrors.log)" | column -t;
 fi;
 
 # View Network
@@ -71,7 +71,7 @@ fi;
 # View Part Key
 if [ ${viewPartKey} == "1" ]; then
 echo -e "\n\n${brk}\nalgodMon - partkeyMonitor - Participation Key Expiration - Report\n${brk}\n";
-echo -e "Date Time Current End RoundsLeft DaysLeft Expiration Registered\n$(timeout 10 tail -n 20 ${logDir}/monitorExpiration.log)" | column -t
+echo -e "Date Time Current End RoundsLeft DaysLeft Expiration Registered\n$(timeout 10 tail -n 25 ${logDir}/monitorExpiration.log)" | column -t
 fi;
 
 # View Tokens
@@ -82,17 +82,17 @@ fi;
 # View Votes
 if [ ${viewVotes} == "1" ]; then
 echo -e "\n\n${brk}\nalgodMon - voteMonitor - Consensus Vote Monitor - Report\n${brk}\n";
-echo -e "Date Time Previous New Today Total\n$(timeout 10 tail -n 20 ${logDir}/monitorVotes.log)" | column -t
+echo -e "Date Time Previous New Today Total\n$(timeout 10 tail -n 25 ${logDir}/monitorVotes.log)" | column -t
 fi;
 
 # View Storage
 if [ ${viewStorage} == "1" ]; then
 echo -e "\n\n${brk}\nalgodMon - storageMonitor - Storage Utilization Monitor - Report\n${brk}\n";
-echo -e "Date Time Utilized block.db b-shm b-wal tracker.db t-shm t-wal node.log algod-err\n$(timeout 10 tail -n 20 ${logDir}/monitorStorage.log)" | column -t;
+echo -e "Date Time Utilized block.db b-shm b-wal tracker.db t-shm t-wal node.log algod-err\n$(timeout 10 tail -n 25 ${logDir}/monitorStorage.log)" | column -t;
 fi;
 
 # View Sync
 if [ ${viewSync} == "1" ]; then
 echo -e "\n\n${brk}\nalgodMon - syncMonitor - Node Synchronization Monitor - Report\n${brk}\n";
-echo -e "Date Time Disk_Util Last_Block Round Sync\n$(timeout 10 tail -n 20 ${logDir}/monitorSync.log)" | column -t
+echo -e "Date Time Disk_Util Last_Block Round Sync\n$(timeout 10 tail -n 25 ${logDir}/monitorSync.log)" | column -t
 fi;
