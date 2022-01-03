@@ -22,7 +22,7 @@ echo -e "\n\nLast Executed: $(date -r ${logDir}/monitorExpiration.log +"%Y-%m-%d
 
 # Check round
 currentRound=$(${nodeDir}/goal node status | grep "Last committed" | awk '{print $NF}');
-keyState=$(${nodeDir}/goal account listpartkeys | tail -n1 | awk '{print $1, $5}');
+keyState=$(${nodeDir}/goal account listpartkeys | grep "^yes\b" | tail -n1 | awk '{print $1, $5}');
 registerState=$(echo ${keyState} | awk '{print $1}');
 lastRound=$(echo ${keyState} | awk '{print $2}');
 
