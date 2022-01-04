@@ -47,7 +47,7 @@ lastExec=$(date -r ${logDir}/pastVote.src +"%Y-%m-%d %H:%M:%S" 2>/dev/null)
 echo -e "\n\nLast Executed: ${lastExec}\nCurrent Time:  ${currentDate} ${currentSecond}\n"
 
 # Count - Update
-currentVotes=$(grep -a VoteBroadcast ~/node/data/node.log | grep ${participationWallet} | wc -l); 
+currentVotes=$(grep -a VoteBroadcast ${dataDir}/node.log | grep ${participationWallet} | wc -l); 
 totalVotes=$(expr ${pastVotes} + ${currentVotes});
 dailyVotes=$(expr $(grep ${currentDate} ${logDir}/monitorVotes.log | awk '{sum+=$4}END{print sum}') + ${currentVotes})
 
