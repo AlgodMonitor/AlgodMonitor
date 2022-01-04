@@ -43,7 +43,8 @@ echo -e "\n\nLoaded configuration: ${logDir}/pastVote.src\n\nPrevious vote count
 fi;
 
 # Execution Tracker
-echo -e "\n\nLast Executed: $(date -r ${logDir}/pastVote.src +"%Y-%m-%d %H:%M:%S" 2>/dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
+lastExec=$(date -r ${logDir}/pastVote.src +"%Y-%m-%d %H:%M:%S" 2>/dev/null)
+echo -e "\n\nLast Executed: ${lastExec}\nCurrent Time:  ${currentDate} ${currentSecond}\n"
 
 # Count - Update
 currentVotes=$(grep -a VoteBroadcast ~/node/data/node.log | grep ${participationWallet} | wc -l); 
@@ -59,6 +60,8 @@ echo -e "\n\n${brk}\nalgodMon - voteMonitor - Consensus Vote Monitor - Report\n$
 echo -e "Date Time Previous New Today Total\n$(tail -n 20 ${logDir}/monitorVotes.log)" | column -t
 
 # Call Error Monitor
+# - When 'vote-monitor.sh' is called the 'error-monitor.sh' must be called after.
+# - When 'error-monitor.sh' is called it looks for errors and truncates the log.
 echo -e "\n\n${brks}\nLog Cleanup\n${brks}\n\nCalling 'errorMonitor' to report errors and truncate node log...\n\n";
 ${sourceDir}/../error-monitor/error-monitor.sh;
 
