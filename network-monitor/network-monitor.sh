@@ -24,6 +24,4 @@ timeout 10 lsof -i :4160 | awk '{print $(NF-1)}' | awk -F"->" '{print $2}' | awk
 # Peer Connections - summary
 cat $(find ${logDir}/networkPeers -name 'lsof-4160*' -mtime -7) | sort | uniq -c | sort -n | tee ${logDir}/networkPeers/monitorPeers-${currentEpoch}
 
-# Remove 'lsof -i'
-echo -e "\n\nRemoving temporary files:  ${logDir}/lsof-4160-${currentEpoch}\n\n"
-rm -f ${logDir}/lsof-4160-${currentEpoch}
+
