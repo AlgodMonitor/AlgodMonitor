@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-#  algodMon v1.2 - voteMonitor - Consensus Vote Monitor
+#  Algod Monitor v1.3 - Vote Monitor - Consensus Vote Monitor
 #
-#  Copyright 2021 - Consiglieri-cfi
+#  Copyright 2022 - Algod Monitor
 #
 
 # Initialization
@@ -12,7 +12,7 @@ echo -e "\n\nERROR: Missing configuration file!\n\nExpected Path: ${globalValues
 kill ${BASHPID}; else source ${globalValues}; fi;
 
 # Banner
-echo -e "\n\n${brk}\nalgodMon - voteMonitor - Consensus Vote Monitor - Initialization\n${brk}";
+echo -e "\n\n${brk}\nAlgod Monitor - Vote Monitor - Consensus Vote Monitor\n${brk}";
 
 # Configuration - Part Key Address
 if [ -f ${configDir}/partWallet.cfg ]; then
