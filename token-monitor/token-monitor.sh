@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-#  algodMon v1.2 - tokenMonitor - Token Report
+#  Algod Monitor v1.3 - Token Monitor - Token Report
 #
-#  Copyright 2021 - Consiglieri-cfi
+#  Copyright 2022 - Algod Monitor
 #
 
 # Initialization
@@ -15,7 +15,7 @@ kill ${BASHPID}; else source ${globalValues}; fi;
 export ALGORAND_DATA=~/node/data;
 
 # Banner
-echo -e "\n\n${brk}\nalgodMon - tokenMonitor - Account Balance Monitor - Report\n${brk}";
+echo -e "\n\n${brk}\nAlgod Monitor - Token Monitor - Account Balance Monitor - Report\n${brk}";
 
 # Configuration - Add Wallet
 if [ ! -f ${configDir}/monitorWallets.cfg ]; then
