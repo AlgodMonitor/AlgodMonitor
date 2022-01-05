@@ -39,7 +39,7 @@ viewStorage=1;
 elif [ "${reportType}" = "config" ]; then
 viewConfig=1;
 else
-echo -e "\n\n${brk}\nalgodMon - perfMonitor - Performance Report Viewer\n${brk}\n";
+echo -e "\n\n${brk}\nAlgod Monitor - Perf Monitor - Performance Report Viewer\n${brk}\n";
 echo -e "\nDisplay historical reports showing system resource utilization.\n\nPlease specify an option when running the 'perfMonitor' command.\n";
 echo -e "\nExample:\n\t ./perf-monitor.sh avg \n\t ./perf-monitor.sh full \n\t ./perf-monitor.sh memory \n";
 echo -e "\nOptions:\n\t avg \n\t full \n\t cpu \n\t memory \n\t network \n\t storage \n\t config\n\n";
