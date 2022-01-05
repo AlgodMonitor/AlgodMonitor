@@ -15,7 +15,7 @@ else
 fi;
 
 # Banner
-echo -e "\n\n${brk}\nAlgod Monitor - errorMonitor - Node Error Monitor - Initialization\n${brk}";
+echo -e "\n\n${brk}\nAlgod Monitor - Error Monitor - Node Error Monitor - Initialization\n${brk}";
 
 # Execution Tracker
 lastExec=$(date -r ${logDir}/monitorErrors.log +"%Y-%m-%d %H:%M:%S" 2>/dev/null)
