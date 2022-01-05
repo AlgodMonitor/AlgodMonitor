@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-#  algodMon v1.2 - storageMonitor - Storage Utilization Monitor 
+#  algodMon v1.3 - storageMonitor - Storage Utilization Monitor 
 #
-#  Copyright 2021 - Consiglieri-cfi
+#  Copyright 2022 - Algod Monitor
 #
 
 # Initialization
@@ -12,7 +12,7 @@ echo -e "\n\nERROR: Missing configuration file!\n\nExpected Path: ${globalValues
 kill ${BASHPID}; else source ${globalValues}; fi;
 
 # Banner
-echo -e "\n\n${brk}\nalgodMon - storageMonitor - Storage Utilization Monitor - Initialization\n${brk}";
+echo -e "\n\n${brk}\nAlgod Monitor - Storage Monitor - Storage Utilization Monitor\n${brk}";
 
 # Execution Tracker
 echo -e "\n\nLast Executed: $(date -r ${logDir}/monitorStorage.log +"%Y-%m-%d %H:%M:%S" 2</dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
