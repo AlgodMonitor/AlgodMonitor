@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-#  algodMon - v1.2 - syncMonitor - Node Synchronization Monitor
+#  Algod Monitor - v1.3 - Sync Monitor - Node Synchronization Monitor
 #
-#  Copyright 2021 - Consiglieri-cfi
+#  Copyright 2022 - Algod Monitor
 #
 
 # Initialization
@@ -15,7 +15,7 @@ kill ${BASHPID}; else source ${globalValues}; fi;
 export ALGORAND_DATA=${dataDir};
 
 # Banner
-echo -e "\n\n${brk}\nalgodMon - syncMonitor - Node Synchronization Monitor\n${brk}";
+echo -e "\n\n${brk}\nAlgod Monitor - Sync Monitor - Node Synchronization Monitor\n${brk}";
 
 # Goal - Check Status
 echo -e "\n\n${brkm}\nNode Synchronization Check\n${brkm}";
