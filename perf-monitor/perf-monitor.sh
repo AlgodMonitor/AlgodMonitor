@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-#  algodMon v1.2 - perfMonitor - Host Performance Monitor
+#  Algod Monitor v1.3 - Perf Monitor - Host Performance Monitor
 #
-#  Copyright (C) 2021 - Consiglieri-cfi
+#  Copyright (C) 2022 - Algod Monitor
 #
 
 # Initialization
