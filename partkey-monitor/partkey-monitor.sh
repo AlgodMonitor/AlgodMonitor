@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-#  algodMon v1.2 - partkeyMonitor - Participation Key Expiration
+#  algodMon v1.2 - Part Key Monitor - Participation Key Expiration
 #
-#  Copyright 2021 - Consiglieri-cfi
+#  Copyright 2022 - Algod Monitor
 #
 
 # Initialization
@@ -15,7 +15,7 @@ kill ${BASHPID}; else source ${globalValues}; fi;
 export ALGORAND_DATA=${dataDir};
 
 # Banner
-echo -e "\n\n${brk}\nalgodMon - partkeyMonitor - Participation Key Expiration - Initialization\n${brk}";
+echo -e "\n\n${brk}\nAlgodMon - Part Key Monitor - Participation Key Expiration - Initialization\n${brk}";
 
 # Execution Tracker
 echo -e "\n\nLast Executed: $(date -r ${logDir}/monitorExpiration.log +"%Y-%m-%d %H:%M:%S" 2>/dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
