@@ -1,9 +1,9 @@
 #!/bin/bash
-#  algodMon v1.2 - Algorand Node Monitoring - Configuration Utility
+#  Algod Monitor - v1.3 - Algorand Node Monitoring - Configuration Utility
 #
 #  Donate/Register: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 #
-#  Copyright 2021 - Consiglieri-cfi
+#  Copyright 2022 - Algod Monitor
 
 # Initialization
 sourceDir=$(dirname "$0");
@@ -15,11 +15,11 @@ mkdir ${sourceDir}/../logs/networkPeers;
 
 # Banner
 brk=$(printf '=%.0s' {1..120}); brkm=$(printf '=%.0s' {1..70}); brks=$(printf '=%.0s' {1..30});
-echo -e "\n\n${brk}\nalgodMon - v1.2 - Algorand Node Monitoring - Configuration\n${brk}\n";
+echo -e "\n\n${brk}\nAlgod Monitor - v1.3 - Algorand Node Monitoring - Configuration\n${brk}\n";
 echo -e "${brkm}\nWelcome!\n${brkm}\n";
-echo -e "Thank you for using 'algodMonitor' node monitoring solution!\n\nPlease share requests and feedback via Github:\n\n\thttps://github.com/consiglieri-cfi/algodMonitor/\n";
+echo -e "Thank you for using 'Algod Monitor' node monitoring solution!\n\nPlease share requests and feedback via Github:\n\n\thttps://github.com/consiglieri-cfi/algodMonitor/\n";
 echo -e "\n${brks}\nDonate / Register\n${brks}\n";
-echo -e "Support development of 'algodMon' and earn NFT rewards!\n\n\tOBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI\n\n";
+echo -e "Support development of 'Algod Monitor' and earn NFT rewards!\n\n\tOBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI\n\n";
 read -n 1 -s -r -p "Press any key to begin setup...";
 
 # Existing Config
