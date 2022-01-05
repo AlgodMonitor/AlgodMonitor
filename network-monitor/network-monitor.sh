@@ -15,7 +15,7 @@ kill ${BASHPID}; else source ${globalValues}; fi;
 export ALGORAND_DATA=${dataDir};
 
 # Banner
-echo -e "\n\n${brk}\nalgodMon - networkMonitor - Network Monitor Report\n${brk}";
+echo -e "\n\n${brk}\nAlgod Monitor - Network Monitor - Network Monitor Report\n${brk}";
 echo -e "\n${brkm}\nNetwork Peers\n${brkm}\n";
 
 # Peer Connections - 'lsof -i'
