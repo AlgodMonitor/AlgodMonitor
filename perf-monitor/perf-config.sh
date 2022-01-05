@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-#  algodMon v1.2 - perfConfig - Host Performance Configuration
+#  Algod Monitor v1.3 - perfConfig - Host Performance Configuration
 #
-#  Copyright (C) 2021 - Consiglieri-cfi
+#  Copyright (C) 2022 - Algod Monitor
 #
 
 # Initialization
@@ -27,7 +27,7 @@ viewDisable=1;
 elif [ "${reportType}" = "view" ]; then
 viewRedirect=1;
 else
-echo -e "\n\n${brk}\nalgodMon - perfConfig - Performance Configuration Utility\n${brk}\n";
+echo -e "\n\n${brk}\nAlgod Monitor - Perf Config - Performance Configuration Utility\n${brk}\n";
 echo -e "\nView and change settings related to performance monitoring.\n\nPlease specify an option when running the 'perfConfig' command.\n";
 echo -e "\nExample:\n\t ./perf-config.sh devices \n\t ./perf-config.sh status \n\t ./perf-config.sh enable \n";
 echo -e "\nOptions:\n\t devices \n\t status \n\t enable \n\t disable \n\t view\n\n";
