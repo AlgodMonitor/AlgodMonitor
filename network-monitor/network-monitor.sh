@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#  algodMon v1.3 - Network Monitor - Network Monitor Report
+#  Algod Monitor - v1.3 - Network Monitor - Network Monitor Report
 #
 #  Copyright 2022 - Algod Monitor
 #
@@ -22,6 +22,7 @@ echo -e "\n${brkm}\nNetwork Peers\n${brkm}\n";
 timeout 10 lsof -i :4160 | awk '{print $(NF-1)}' | awk -F"->" '{print $2}' | awk -F":" '{print $1}' | awk 'NF' > ${logDir}/networkPeers/lsof-4160-${currentEpoch}
 
 # Peer Connections - summary
-cat $(find ${logDir}/networkPeers -name 'lsof-4160*' -mtime -7) | sort | uniq -c | sort -n | tee ${logDir}/networkPeers/monitorPeers-${currentEpoch}
+reportList=$(find ${logDir}/networkPeers -name 'lsof-4160*' -mtime -7)
+cat ${reportList} | sort | uniq -c | sort -n | tee ${logDir}/networkPeers/monitorPeers-${currentEpoch}
 
 
