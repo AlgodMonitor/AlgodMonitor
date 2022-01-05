@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-#  algodMon v1.2 - batchMonitor - Monitor Scheduling Agent
+#  Algod Monitor v1.2 - Batch Monitor - Monitor Scheduling Agent
 #
-#  Copyright 2021 - Consiglieri-cfi
+#  Copyright 2022 - Algod Monitor
 #
 
 sourceDir=$(dirname "$0");
