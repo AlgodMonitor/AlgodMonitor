@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-#  algodMon v1.2 - errorMonitor - Node Error Monitor
+#  algodMon v1.3 - Error Monitor - Node Error Monitor
 #
-#  Copyright 2021 - Consiglieri-cfi
+#  Copyright 2022 - Algod Monitor
 #
 
 # Initialization
