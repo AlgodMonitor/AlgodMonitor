@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#  algodMon v1.2 - Part Key Monitor - Participation Key Expiration
+#  algodMon v1.3 - Part Key Monitor - Participation Key Expiration
 #
 #  Copyright 2022 - Algod Monitor
 #
