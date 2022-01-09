@@ -1,5 +1,5 @@
 #!/bin/bash
-#  Algod Monitor - v1.3 - Algorand Node Monitoring - Configuration Utility
+#  Algod Monitor - v1.3 - Node Monitor - Configuration Utility
 #
 #  Donate/Register: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 #
