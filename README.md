@@ -1,11 +1,11 @@
 -------------------------------------------------------------------------
 Release Information
 -------------------------------------------------------------------------
-Name: algodMonitor
+Name: Algod Monitor
 
-Version: 1.2
+Version: 1.3
 
-Copyright: 2021
+Copyright: 2022
 
 
 -------------------------------------------------------------------------
@@ -77,7 +77,7 @@ OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
 Feedback / Support 
 -------------------------------------------------------------------------
 
-Provide feedback on 'alagodMonitor' and receive a limited edition NFT!
+Provide feedback on 'AlagodMonitor' and receive limited edition NFTs!
 
 Username: Consiglieri#4724
 
