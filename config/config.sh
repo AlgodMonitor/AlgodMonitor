@@ -1,7 +1,7 @@
 #!/bin/bash
 #  Algod Monitor - v1.3 - Node Monitor - Configuration Utility
 #
-#  Donate/Register: OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
+#  Donate/Register: INFRA6E4IZQJQGBU3KLB54GU5SY5SS32SHE2Q6ISCDUUZEZN6INUM64CRU
 #
 #  Copyright 2022 - Algod Monitor
 
