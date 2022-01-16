@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#  Algod Monitor v1.2 - Batch Monitor - Monitor Scheduling Agent
+#  Algod Monitor v1.3 - Batch Monitor - Monitor Scheduling Agent
 #
 #  Copyright 2022 - Algod Monitor
 #
