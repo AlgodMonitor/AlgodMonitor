@@ -70,7 +70,7 @@ Development Fund
 
 Support the 'Algod Monitor' development fund:
 
-OBQIVIPTUXZENH2YH3C63RHOGS7SUGGQTNJ52JR6YFHEVFK5BR7BEYKQKI
+INFRA6E4IZQJQGBU3KLB54GU5SY5SS32SHE2Q6ISCDUUZEZN6INUM64CRU
 
 
 -------------------------------------------------------------------------
@@ -79,9 +79,9 @@ Feedback / Support
 
 Provide feedback on 'Algod Monitor' and receive limited edition NFTs!
 
-Username: Consiglieri#4724
+Username: AlgodMonitor#4724
 
-Link: https://discord.com/invite/nxrYwdxDSf
+Link: https://discord.gg/qH9N97EE
 
 
 -------------------------------------------------------------------------
