@@ -100,7 +100,7 @@ Network Monitor
 
 
 -------------------------------------------------------------------------
-Ppartkey Monitor
+Participation Key Monitor
 -------------------------------------------------------------------------
 - Report participation key expiration date 
 - Generate time series report
@@ -124,7 +124,7 @@ Error Monitor
 
 
 -------------------------------------------------------------------------
-Perf Monitor
+Performnace Monitor
 -------------------------------------------------------------------------
 - Enable / disable performnace monitoring
 - Check daily averages
