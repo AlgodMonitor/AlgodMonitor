@@ -59,9 +59,14 @@ echo -e "${currentTime} \t ${pastVotes} \t ${currentVotes} \t ${dailyVotes} \t $
 echo -e "\n\n${brk}\nalgodMon - voteMonitor - Consensus Vote Monitor - Report\n${brk}\n";
 echo -e "Date Time Previous New Today Total\n$(tail -n 20 ${logDir}/monitorVotes.log)" | column -t
 
+# Run Consensus Monitor
+#  After 'consensus-monitor.sh' is called the votes are logged for reporting via telemetry
+#  This function is commented out until the next release
+# ${sourceDir}/../consensus-monitor/consensus-monitor.sh
+
 # Call Error Monitor
-# - When 'vote-monitor.sh' is called the 'error-monitor.sh' must be called after.
-# - When 'error-monitor.sh' is called it looks for errors and truncates the log.
+#  After 'vote-monitor.sh' is called the 'error-monitor.sh' must be called after.
+#  After 'error-monitor.sh' is called the errors are logged and the log file is truncated.
 echo -e "\n\n${brks}\nLog Cleanup\n${brks}\n\nCalling 'errorMonitor' to report errors and truncate node log...\n\n";
 ${sourceDir}/../error-monitor/error-monitor.sh;
 
