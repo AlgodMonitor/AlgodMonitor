@@ -17,7 +17,7 @@ mkdir ${sourceDir}/../logs/networkPeers;
 brk=$(printf '=%.0s' {1..120}); brkm=$(printf '=%.0s' {1..70}); brks=$(printf '=%.0s' {1..30});
 echo -e "\n\n${brk}\nAlgod Monitor - v1.3 - Algorand Node Monitoring - Configuration\n${brk}\n";
 echo -e "${brkm}\nWelcome!\n${brkm}\n";
-echo -e "Thank you for using 'Algod Monitor' node monitoring solution!\n\nPlease share requests and feedback via Github:\n\n\thttps://github.com/consiglieri-cfi/algodMonitor/\n";
+echo -e "Thank you for using 'Algod Monitor' node monitoring solution!\n\nPlease share requests and feedback via GitHub:\n\n\thttps://github.com/AlgodMonitor/AlgodMonitor/\n";
 echo -e "\n${brks}\nDonate / Register\n${brks}\n";
 echo -e "Support development of 'Algod Monitor' and earn NFT rewards!\n\n\tINFRA6E4IZQJQGBU3KLB54GU5SY5SS32SHE2Q6ISCDUUZEZN6INUM64CRU\n\n";
 read -n 1 -s -r -p "Press any key to begin setup...";
