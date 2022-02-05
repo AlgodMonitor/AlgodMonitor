@@ -15,7 +15,7 @@ kill ${BASHPID}; else source ${globalValues}; fi;
 export ALGORAND_DATA=${dataDir};
 
 # Banner
-echo -e "\n\n${brk}\nAlgodMon - Part Key Monitor - Participation Key Expiration - Initialization\n${brk}";
+echo -e "\n\n${brk}\nAlgod Monitor - Part Key Monitor - Participation Key Expiration - Initialization\n${brk}";
 
 # Execution Tracker
 echo -e "\n\nLast Executed: $(date -r ${logDir}/monitorExpiration.log +"%Y-%m-%d %H:%M:%S" 2>/dev/null)\nCurrent Time:  ${currentDate} ${currentSecond}\n"
@@ -43,7 +43,7 @@ echo -e "${currentTime} \t ${currentRound} \t ${lastRound} \t ${deltaRound} \t $
 echo -e "\nParticipation Key is valid for ${monitorKeyExpiration} days.";
 
 # Show Report
-echo -e "\n\n${brk}\nalgodMon - partkeyMonitor - Participation Key Expiration - Report\n${brk}\n";
+echo -e "\n\n${brk}\nAlgod Monitor - Part Key Monitor - Participation Key Expiration - Report\n${brk}\n";
 echo -e "Date Time Current End RoundsLeft DaysLeft Expiration Registered\n$(tail -n 20 ${logDir}/monitorExpiration.log)" | column -t
 
 #EOF
