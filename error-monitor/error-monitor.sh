@@ -47,7 +47,7 @@ echo -e "Processing:  Count warning messages: ${warnReport}"
 warnCount=$(wc -l ${warnReport} | awk '{print $1}');
 
 # Error Monitor - Report
-echo -e "\n\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - Report\n${brk}";
+echo -e "\n\n\n${brk}\nAlgod Monitor - Error Monitor - Node Error Monitor - Report\n${brk}";
 
 # errorReport - Errors Detected
 mv ${errorReport} ${errorReport}-${currentEpoch};
@@ -108,7 +108,7 @@ else
 fi;
 
 # Error Monitor - Historical
-echo -e "\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - History\n${brk}\n";
+echo -e "\n\n${brk}\nAlgod Monitor - Error Monitor - Node Error Monitor - History\n${brk}\n";
 errorHistory=${logDir}/monitorErrors.log
 
 # Count - Update
