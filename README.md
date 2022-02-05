@@ -38,11 +38,11 @@ Generates reports showing the following data:
 -------------------------------------------------------------------------
 Installation
 -------------------------------------------------------------------------
-`git clone https://github.com/consiglieri-cfi/algodMonitor`
+`git clone https://github.com/AlgodMonitor/AlgodMonitor`
 
-`chmod +x ./algodMonitor/config/config.sh`
+`chmod +x ./AlgodMonitor/config/config.sh`
 
-`./algodMonitor/config/config.sh`
+`./AlgodMonitor/config/config.sh`
 
 
 -------------------------------------------------------------------------
