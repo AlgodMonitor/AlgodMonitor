@@ -28,29 +28,40 @@ if [ ${checkConf} -gt 0 ]; then
 echo -e "\n\n\n\n\n${brkm}\nExisting Configuration Detected\n${brkm}\n"
 echo -e "Existing configuration settings has been found.\n\nPlease review and confirm settings are correct.\n"
 echo -e "\n\tPath: ${configFile}\n";
-echo -e "\n${brks}\nValidation\n${brks}\n"; grep "# Data\|dataDir\|nodeDir" ${configFile};
+echo -e "\n${brks}\nValidation\n${brks}\n"; grep "# Data\|monitorDir\|dataDir\|nodeDir" ${configFile};
 echo -e "\n\nAre the value shown correct? (y/n)\n\n"; read checkConf;
 if [ ${checkConf} = "n" ]; then
 echo -e "\n\n${brkm}\nClear Configuration\n${brkm}\n";
-sed -i '/# Data\|dataDir=.*\|nodeDir=.*/d' ${configFile};
-echo -e "Configuration has been cleared.\n\nPlease restart setup to re-enter the settings.\n\n";
+sed -i '/# Data\|dataDir=.*\|nodeDir=.*\|monitorDir=.*/d' ${configFile};
+echo -e "Configuration has been cleared.\n\nPlease restart 'config.sh' to reconfigure Algod Monitor settings.\n\n";
 kill -9 ${BASHPID}; fi;
 else
+
+# Monitor Directory
+echo -e "\n\n${brkm}\nConfiguration - Algod Monitor Directory\n${brkm}";
+echo -e "\nPlease specify the path to Algod Monitor directory...\n\nExample: ${HOME}/AlgodMonitor\n\n"; read monitorDir;
+echo -e "\n\n${brks}\nValidation\n${brks}\n\nYou have entered: ${monitorDir}\n\n\nIs this value correct? (y/n)\n\n"; read checkPath;
+if [ ! ${checkPath} = "y" ]; then
+echo -e "\nPlease restart 'config.sh' to reconfigure Algod Monitor settings.\n"; kill ${BASHPID};
+else
+echo -e "\n\nProcessing:  Saving configuration..."
+echo -e "# Data\nmonitorDir=${monitorDir}" >> ${configFile}; echo -e "\nDone.\n";
+fi;
 
 # Node Directory
 echo -e "\n\n${brkm}\nConfiguration - Algorand Node Directory\n${brkm}";
 echo -e "\nPlease specify the path to the Algorand Node directory...\n\nExample: ${HOME}/node\n\n"; read nodeDir;
 echo -e "\n\n${brks}\nValidation\n${brks}\n\nYou have entered: ${nodeDir}\n\n\nIs this value correct? (y/n)\n\n"; read checkPath;
 if [ ! ${checkPath} = "y" ]; then
-echo -e "\nPlease restart configuration and re-enter the settings.\n"; kill ${BASHPID};
+echo -e "\nPlease restart 'config.sh' to reconfigure Algod Monitor settings.\n"; kill ${BASHPID};
 else
 echo -e "\n\nProcessing:  Saving configuration..."
-echo -e "# Data\nnodeDir=${nodeDir}" >> ${configFile}; echo -e "\nDone.\n";
+echo -e "nodeDir=${nodeDir}" >> ${configFile}; echo -e "\nDone.\n";
 fi;
 
 # Data Directory
 echo -e "\n\n${brkm}\nConfiguration - Algorand Data Directory\n${brkm}";
-echo -e "\nPlease specify the path to the Algorand Data directory...\n\nExample: ${HOME}/node/data\n\n"; read dataDir;
+echo -e "\nPlease specify the path to the Algorand Data directory...\n\nExample: ${nodeDir}/data\n\n"; read dataDir;
 echo -e "\n\n${brks}\nValidation\n${brks}\n\nYou have entered: ${dataDir}\n\n\nIs this value correct? (y/n)\n\n"; read checkPath;
 if [ ! ${checkPath} = "y" ]; then
 echo -e "\nPlease restart configuration and re-enter the settings.\n"; kill ${BASHPID};
@@ -61,23 +72,24 @@ fi;
 
 # Configuration
 echo -e "\n\n\n${brkm}\nConfiguration Review\n${brkm}\n"
-echo -e "Please review the current configuration file.\n\n\nPath: ${configFile}\n";
-echo -e "\n${brks}\nValidate Settings\n${brks}\n"; grep "# Data\|dataDir\|nodeDir" ${configFile};
-echo -e "\n\nAre the value shown correct? (y/n)\n\n"; read checkConf;
+echo -e "Please review the current configuration file.\n\n\nPath: ${monitorDir}/config/globalValues.cfg\n";
+echo -e "\n${brks}\nValidate Settings\n${brks}\n"; grep "# Data\|monitorDir\|dataDir\|nodeDir" ${configFile};
+echo -e "\n\nAre the values shown correct? (y/n)\n\n"; read checkConf;
 if [ ! ${checkConf} = "y" ]; then
 echo -e "\n\n${brkm}\nClear Configuration\n${brkm}\n";
-sed -i '/# Data\|dataDir=.*\|nodeDir=.*/d' ${configFile};
-echo -e "Configuration has been cleared.\n\nPlease restart setup to re-enter the settings.\n\n";
+sed -i '/\# Data\|dataDir=.*\|nodeDir=.*\|monitorDir=.*/d' ${configFile};
+echo -e "Configuration has been cleared.\n\nPlease restart 'config.sh' to reconfigure Algod Monitor settings.\n\n";
 kill ${BASHPID};
+else
+source ${configFile}
 fi;
 fi;
 
 # Complete
 echo -e "\n\n\n${brkm}\nConfiguration Complete\n${brkm}";
-echo -e "\nPaths below assume './node' is installed in the HOME directory of the current user.\n\nAdjust the path to the 'batch-monitor' script as needed.\n"
 echo -e "\n${brks}\nManual Execution\n${brks}\n";
-echo -e "Configuration has completed successfully.\n\nExecute 'batch-monitor' to validate functionality:\n\n\t${HOME}/AlgodMonitor/batch-monitor.sh\n";
+echo -e "Configuration has completed successfully.\n\nExecute 'batch-monitor' to validate functionality:\n\n\t${monitorDir}/batch-monitor.sh\n";
 echo -e "\n${brks}\nSchedule Execution\n${brks}\n";
-echo -e "Run 'crontab -e' to edit local system scheduler configuration.\n\nAdd the following entry for hourly exection:\n\n0 */1 * * * ${HOME}/AlgodMonitor/batch-monitor.sh\n\n";
+echo -e "Run 'crontab -e' to edit local system scheduler configuration.\n\nAdd the following entry for hourly exection:\n\n0 */1 * * * ${monitorDir}/batch-monitor.sh\n\n";
 
 # EOF
