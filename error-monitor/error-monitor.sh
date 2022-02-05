@@ -22,7 +22,7 @@ lastExec=$(date -r ${logDir}/monitorErrors.log +"%Y-%m-%d %H:%M:%S" 2>/dev/null)
 echo -e "\nLast Executed: ${lastExec}\nCurrent Time:  ${currentDate} ${currentSecond}\n"
 
 # Error Monitor - Processing
-echo -e "\n\n${brk}\nalgodMon - errorMonitor - Node Error Monitor - Processing\n${brk}\n";
+echo -e "\n\n${brk}\nAlgod Monitor - Error Monitor - Node Error Monitor - Processing\n${brk}\n";
 
 # Set File Names
 errorReport=${logDir}/nodeMessages/nodeError.log
