@@ -74,6 +74,7 @@ fi;
 
 # Complete
 echo -e "\n\n\n${brkm}\nConfiguration Complete\n${brkm}";
+echo -e "\nPaths below assume './node' is installed in the HOME directory of the current user.\n\nAdjust the path to the 'batch-monitor' script as needed.\n"
 echo -e "\n${brks}\nManual Execution\n${brks}\n";
 echo -e "Configuration has completed successfully.\n\nExecute 'batch-monitor' to validate functionality:\n\n\t${HOME}/AlgodMonitor/batch-monitor.sh\n";
 echo -e "\n${brks}\nSchedule Execution\n${brks}\n";
