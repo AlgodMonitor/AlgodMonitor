@@ -21,7 +21,13 @@ Track network information and key performance indicators over time.
 Features
 -------------------------------------------------------------------------
 
-Generates reports showing the following data:
+An overview of features is provided on the following page:
+
+https://algod.network/algod-monitor-features-for-participation-nodes-224351877314
+
+
+Algod Monitor generates reports with the following data:
+
  - Node Synchronization
  - Node Errors
  - Storage Use
@@ -81,7 +87,7 @@ Provide feedback on 'Algod Monitor' and receive limited edition NFTs!
 
 Username: AlgodMonitor#4724
 
-Link: https://discord.gg/qH9N97EE
+Link: https://discord.gg/EV3MX7wGtg
 
 
 -------------------------------------------------------------------------
