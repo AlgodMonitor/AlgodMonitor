@@ -7,7 +7,7 @@ brkm=$(printf '=%.0s' {1..70});
 brks=$(printf '=%.0s' {1..30});
 
 # Variables
-dataDir=/home/ac0/ares
+dataDir=/root
 
 # Component Variables
 for viewComponent in viewSummary viewReport; do export ${viewComponent}=0; done
