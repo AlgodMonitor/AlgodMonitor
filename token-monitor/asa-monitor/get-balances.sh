@@ -2,9 +2,9 @@
 # Algod Monitor - Token Monitor - Distribution / Balance Report
 
 # Set Variables
-assetID=590620260
+assetID=571782960
 indexerAddress=https://algoindexer.algoexplorerapi.io
-outDir=/home/ac0/ares
+outDir=/root
 
 # Date
 currentDate=$(date +%Y-%m-%d);
