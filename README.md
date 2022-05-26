@@ -14,7 +14,7 @@ Description
 
 Suite of monitoring utilities for Algorand nodes.
 
-Track network information and key performance indicators over time.
+Track system health, event data, and key performance indicators over time.
 
 
 -------------------------------------------------------------------------
