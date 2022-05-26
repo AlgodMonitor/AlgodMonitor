@@ -83,11 +83,13 @@ INFRA6E4IZQJQGBU3KLB54GU5SY5SS32SHE2Q6ISCDUUZEZN6INUM64CRU
 Feedback / Support 
 -------------------------------------------------------------------------
 
-Provide feedback on 'Algod Monitor' and receive limited edition NFTs!
+Provide feedback or contribute to AlgodMonitor and receive limited edition NFTs!
 
-Username: AlgodMonitor#4724
+Discord Username: AlgodMonitor#4724
 
-Link: https://discord.gg/EV3MX7wGtg
+Discord Link: https://discord.gg/EV3MX7wGtg
+
+Twitter: https://twitter.com/algodmonitor
 
 
 -------------------------------------------------------------------------
