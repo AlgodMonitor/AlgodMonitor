@@ -74,7 +74,7 @@ Significant enhancements are also in progress for the Network Monitor.
 Development Fund
 -------------------------------------------------------------------------
 
-Support the 'Algod Monitor' development fund:
+Support the AlgodMonitor development fund:
 
 INFRA6E4IZQJQGBU3KLB54GU5SY5SS32SHE2Q6ISCDUUZEZN6INUM64CRU
 
