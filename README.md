@@ -132,9 +132,9 @@ Error Monitor
 
 
 -------------------------------------------------------------------------
-Performnace Monitor
+Performance Monitor
 -------------------------------------------------------------------------
-- Enable / disable performnace monitoring
+- Enable / disable performance monitoring
 - Check daily averages
 - Check historical data
 - Generate telemetry reports
